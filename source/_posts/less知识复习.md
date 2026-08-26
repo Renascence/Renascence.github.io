@@ -8,7 +8,7 @@ Sass和Less都属于Css预处理器，但是说来惭愧，使用了这么久用
 
 正好最近我在开发公司内部使用的组件，有些组件会根据传入的参数不同，显示不同的颜色。
 
-```
+```typescript
 ...
 
 <Notice type='success'> // 展示为绿色
@@ -18,7 +18,7 @@ Sass和Less都属于Css预处理器，但是说来惭愧，使用了这么久用
 
 那么组件内部实现应该类似于这样
 
-```
+```typescript
 // Notice.js
 const Notice = ({type}) => {
   return <div classname=`notice-${type}`>
@@ -30,7 +30,7 @@ const Notice = ({type}) => {
 
 接着开始写less文件,希望最终的生成结果应该是这样：
 
-```
+```less
 .notice-success {
   color: green
 }
@@ -41,7 +41,7 @@ const Notice = ({type}) => {
 
 ```
 然后去温习一遍less变量和遍历的使用：
-```
+```less
 // 官方文档
 .generate-columns(4);
 
@@ -69,7 +69,7 @@ const Notice = ({type}) => {
 
 然后着手开发：
 
-```
+```less
 
 // 定义变量：
 @types: warn, info, success, error;
@@ -92,11 +92,11 @@ const Notice = ({type}) => {
 
 我反复排查了less的语法，发现文档上类名中使用变量就是这么写的（less版本：3.10），但是编译报错，我在网上查了很久没有查出原因，后来尝试重新定义了一个变量解决，很简单的解决办法，但是也花了很久排查，算踩了一个小坑，记录一下，修改后的代码
 
-```
+```less
 .loop(@n, @i: 1) when (@i < @n) {
     @name: extract(@types, @i);
 
-  .NoticeBar-@{name} { // warn：less编译错误
+  .NoticeBar-@{name} {
     background-color: extract(@backgroudColors, @i);
     border: 1px solid extract(@borderColors, @i);
   }
