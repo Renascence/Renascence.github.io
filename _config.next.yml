@@ -1,0 +1,65 @@
+# ============================================================
+# NexT 主题配置 (Alternate Theme Config)
+# 该文件会覆盖 node_modules/hexo-theme-next/_config.yml 的默认值
+# 文档: https://theme-next.js.org/docs/getting-started/configuration
+# ============================================================
+
+# 主题布局风格（与旧版保持一致）
+scheme: Muse
+
+# 深色模式
+darkmode: true
+
+# 菜单（与旧版一致：首页 + 归档）
+menu:
+  home: / || fa fa-home
+  archives: /archives/ || fa fa-archive
+
+menu_settings:
+  icons: true
+  badges: false
+
+# 侧边栏
+sidebar:
+  position: left
+  display: post
+  padding: 18
+  offset: 12
+
+# 站点状态（文章/分类/标签数）
+site_state: true
+
+# 社交链接
+social:
+  GitHub: https://github.com/Renascence || fab fa-github
+
+social_icons:
+  enable: true
+  icons_only: false
+  transition: false
+
+# 目录
+toc:
+  enable: true
+  number: true
+  wrap: false
+
+# 文章设置
+excerpt_description: true
+read_more_btn: true
+
+post_meta:
+  updated_at:
+    enable: true
+    another_day: true
+
+# 阅读进度
+reading_progress:
+  enable: false
+
+# 图片灯箱
+fancybox: true
+
+# 页脚
+footer:
+  powered: true
