@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.css" integrity="sha256-mdaMxrItEW6hMIVJJNPKuX0B7KCSJQVEv3mVY4N2we4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"renascence.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Antd Formant design的表单相信大家都已经很熟悉了，今天聊聊其中几个api都具体实现。  先来看一个demo： 123456789101112131415161718192021222324252627282930313233343536373839class NormalLoginForm extends React.Component &#123;  handleSubmit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聊聊Antd Form表单">
+<meta property="og:url" content="https://renascence.github.io/2020/03/28/%E8%81%8A%E8%81%8AAntd-Form%E8%A1%A8%E5%8D%95/index.html">
+<meta property="og:site_name" content="Logging的博客">
+<meta property="og:description" content="Antd Formant design的表单相信大家都已经很熟悉了，今天聊聊其中几个api都具体实现。  先来看一个demo： 123456789101112131415161718192021222324252627282930313233343536373839class NormalLoginForm extends React.Component &#123;  handleSubmit">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/formdemo.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/formdemo.jpg">
+<meta property="article:published_time" content="2020-03-28T05:10:37.000Z">
+<meta property="article:modified_time" content="2026-09-04T08:35:42.841Z">
+<meta property="article:author" content="Logging">
+<meta property="article:tag" content="React Antd">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/formdemo.jpg">
+
+
+<link rel="canonical" href="https://renascence.github.io/2020/03/28/%E8%81%8A%E8%81%8AAntd-Form%E8%A1%A8%E5%8D%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://renascence.github.io/2020/03/28/%E8%81%8A%E8%81%8AAntd-Form%E8%A1%A8%E5%8D%95/","path":"2020/03/28/聊聊Antd-Form表单/","title":"聊聊Antd Form表单"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>聊聊Antd Form表单 | Logging的博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.umd.js" integrity="sha256-QnJV4HT5r8i89ovZGRD86iynZqHerEbT2xt69vDM36I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Logging的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">https://github.com/Renascence</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Antd-Form"><span class="nav-number">1.</span> <span class="nav-text">Antd Form</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#getFieldDecorator"><span class="nav-number">1.1.</span> <span class="nav-text">getFieldDecorator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#validateFields"><span class="nav-number">1.2.</span> <span class="nav-text">validateFields</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Logging</p>
+  <div class="site-description" itemprop="description">讲道理此处应有描述，可是我不讲道理。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Renascence" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Renascence" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2020/03/28/%E8%81%8A%E8%81%8AAntd-Form%E8%A1%A8%E5%8D%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="聊聊Antd Form表单 | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          聊聊Antd Form表单
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-28 13:10:37" itemprop="dateCreated datePublished" datetime="2020-03-28T13:10:37+08:00">2020-03-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Antd-Form"><a href="#Antd-Form" class="headerlink" title="Antd Form"></a>Antd Form</h1><p>ant design的表单相信大家都已经很熟悉了，今天聊聊其中几个api都具体实现。</p>
+<hr>
+<p>先来看一个demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">class NormalLoginForm extends React.Component &#123;</span><br><span class="line">  handleSubmit = e =&gt; &#123;this.props.form.validateFields((err, values) =&gt; &#123;&#125;);&#125;;</span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; getFieldDecorator &#125; = this.props.form;</span><br><span class="line">    return (</span><br><span class="line">      &lt;Form onSubmit=&#123;this.handleSubmit&#125; className=&quot;login-form&quot;&gt;</span><br><span class="line">        &lt;Form.Item&gt;</span><br><span class="line">          &#123;getFieldDecorator(&#x27;username&#x27;, &#123;</span><br><span class="line">            rules: [&#123; required: true, message: &#x27;Please input your username!&#x27; &#125;],</span><br><span class="line">          &#125;)(</span><br><span class="line">            &lt;Input</span><br><span class="line">              prefix=&#123;&lt;Icon type=&quot;user&quot; style=&#123;&#123; color: &#x27;rgba(0,0,0,.25)&#x27; &#125;&#125; /&gt;&#125;</span><br><span class="line">              placeholder=&quot;Username&quot;</span><br><span class="line">            /&gt;,</span><br><span class="line">          )&#125;</span><br><span class="line">        &lt;/Form.Item&gt;</span><br><span class="line">        &lt;Form.Item&gt;</span><br><span class="line">          &#123;getFieldDecorator(&#x27;password&#x27;, &#123;</span><br><span class="line">            rules: [&#123; required: true, message: &#x27;Please input your Password!&#x27; &#125;],</span><br><span class="line">          &#125;)(</span><br><span class="line">            &lt;Input</span><br><span class="line">              prefix=&#123;&lt;Icon type=&quot;lock&quot; style=&#123;&#123; color: &#x27;rgba(0,0,0,.25)&#x27; &#125;&#125; /&gt;&#125;</span><br><span class="line">              type=&quot;password&quot;</span><br><span class="line">            /&gt;,</span><br><span class="line">          )&#125;</span><br><span class="line">        &lt;/Form.Item&gt;</span><br><span class="line">        &lt;Form.Item&gt;</span><br><span class="line">          &lt;Button type=&quot;primary&quot; htmlType=&quot;submit&quot; className=&quot;login-form-button&quot;&gt;</span><br><span class="line">            Log in</span><br><span class="line">          &lt;/Button&gt;</span><br><span class="line">        &lt;/Form.Item&gt;</span><br><span class="line">      &lt;/Form&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">const WrappedNormalLoginForm = Form.create(&#123; name: &#x27;normal_login&#x27; &#125;)(NormalLoginForm);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;WrappedNormalLoginForm /&gt;, mountNode);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/formdemo.jpg" alt="Demo"></p>
+<p>其中主要的几个api是 Form.creat， getFieldDecorator, form.validateFields。</p>
+<p>先看最外层的 Form.creat,这个方法创造了一个高阶组件，给传入的组件props上传入了一些方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import createDOMForm from &#x27;rc-form/lib/createDOMForm&#x27;;</span><br><span class="line"></span><br><span class="line">export default class Form extends React.Component&lt;FormProps, any&gt; &#123;</span><br><span class="line">  …  </span><br><span class="line">  static create = function create(options = &#123;&#125;) &#123; </span><br><span class="line">    // create方法主要调用了createDOMForm函数 </span><br><span class="line">    return createDOMForm(&#123;</span><br><span class="line">      fieldNameProp: &#x27;id&#x27;,</span><br><span class="line">      …options,</span><br><span class="line">      fieldMetaProp: FIELD_META_PROP,</span><br><span class="line">      fieldDataProp: FIELD_DATA_PROP,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;··</span><br><span class="line">  renderForm = (&#123; getPrefixCls &#125;: ConfigConsumerProps) =&gt; &#123; // 给formItem增加类名，用于控制样式 </span><br><span class="line">    …</span><br><span class="line">    const formClassName = classNames(</span><br><span class="line">      prefixCls,</span><br><span class="line">      &#123;</span><br><span class="line">        [`$&#123;prefixCls&#125;-horizontal`]: layout === &#x27;horizontal&#x27;,</span><br><span class="line">        [`$&#123;prefixCls&#125;-vertical`]: layout === &#x27;vertical&#x27;,</span><br><span class="line">        [`$&#123;prefixCls&#125;-inline`]: layout === &#x27;inline&#x27;,</span><br><span class="line">        [`$&#123;prefixCls&#125;-hide-required-mark`]: hideRequiredMark,</span><br><span class="line">      &#125;,</span><br><span class="line">      className,</span><br><span class="line">    );</span><br><span class="line">     … </span><br><span class="line">     return &lt;form &#123;...formProps&#125; className=&#123;formClassName&#125; /&gt;;</span><br><span class="line">  &#125;;</span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; wrapperCol, labelAlign, labelCol, layout, colon &#125; = this.props;</span><br><span class="line">    return (</span><br><span class="line">      &lt;FormContext.Provider</span><br><span class="line">        value=&#123;&#123; wrapperCol, labelAlign, labelCol, vertical: layout === &#x27;vertical&#x27;, colon &#125;&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        &lt;ConfigConsumer&gt;&#123;this.renderForm&#125;&lt;/ConfigConsumer&gt;</span><br><span class="line">      &lt;/FormContext.Provider&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/formdemo.jpg" alt="Fields"><br>初始化完成的fieldsStore，其中fields和fieldsMeta为存储信息的对象，其他方法都是对这两个对象对读写操作。</p>
+<p>fields主要用来记录每个表单项的实时数据，包含以下属性：</p>
+<ul>
+<li>dirty 数据是否已经改变，但未校验</li>
+<li>errors 校验文案</li>
+<li>name 字段名称</li>
+<li>touched 数据是否更新过</li>
+<li>value 字段的值</li>
+<li>validating 校验状态</li>
+</ul>
+<p>fieldsMeta 用来记录元数据，即每个字段对应组件的配置信息：</p>
+<ul>
+<li>initialValue 初始值</li>
+<li>name 字段的名称</li>
+<li>trigger 触发数据收集的时机 默认 onChange</li>
+<li>valuePropName 子节点的值的属性，例如 checkbox 应该设为 checked</li>
+<li>rules 校验的规则</li>
+<li>originalProps 被 getFieldDecorator() 装饰的组件的原始 props</li>
+<li>validate 校验规则和触发事件</li>
+</ul>
+<p>然后看rc-form库里的createDOMForm方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// createDOMForm.js</span><br><span class="line">function createDOMForm(option) &#123;</span><br><span class="line">  return createBaseForm(&#123;</span><br><span class="line">    ...option,</span><br><span class="line">  &#125;, [mixin]);</span><br><span class="line">&#125;</span><br><span class="line">export default createDOMForm;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">// createBaseForm.js</span><br><span class="line">getInitialState() &#123;</span><br><span class="line">  const fields = mapPropsToFields &amp;&amp; mapPropsToFields(this.props);</span><br><span class="line">  this.fieldsStore = createFieldsStore(fields || &#123;&#125;); </span><br><span class="line">  // 初始化创建fieldsStore，用于存储表单信息</span><br><span class="line">  … </span><br><span class="line">  return &#123; submitting: false &#125;;</span><br><span class="line">&#125;</span><br><span class="line">render() </span><br><span class="line">  const &#123; wrappedComponentRef, ...restProps &#125; = this.props;</span><br><span class="line">  const formProps = &#123;</span><br><span class="line">    [formPropName]: this.getForm(), </span><br><span class="line">    // 来在 formPropName默认为form，getForm方法来自`createForm.js`，注入props.form的api</span><br><span class="line">    &#123;/*</span><br><span class="line">      getForm() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">          getFieldsValue: this.fieldsStore.getFieldsValue,</span><br><span class="line">          getFieldInstance: this.getFieldInstance,</span><br><span class="line">          setFieldsValue: this.setFieldsValue,</span><br><span class="line">          setFieldsInitialValue: this.fieldsStore.setFieldsInitialValue,</span><br><span class="line">          getFieldDecorator: this.getFieldDecorator,</span><br><span class="line">          getFieldsError: this.fieldsStore.getFieldsError,</span><br><span class="line">          isSubmitting: this.isSubmitting,</span><br><span class="line">          submit: this.submit,</span><br><span class="line">          validateFields: this.validateFields,</span><br><span class="line">          resetFields: this.resetFields,</span><br><span class="line">          ...</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line">    */&#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  if (withRef) &#123;</span><br><span class="line">    formProps.ref = &#x27;wrappedComponent&#x27;;</span><br><span class="line">  &#125; else if (wrappedComponentRef) &#123;</span><br><span class="line">    formProps.ref = wrappedComponentRef;</span><br><span class="line">  &#125;</span><br><span class="line">  const props = mapProps.call(this, &#123;</span><br><span class="line">    ...formProps,</span><br><span class="line">    ...restProps,</span><br><span class="line">  &#125;);</span><br><span class="line">  return &lt;WrappedComponent &#123;...props&#125; /&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="getFieldDecorator"><a href="#getFieldDecorator" class="headerlink" title="getFieldDecorator"></a>getFieldDecorator</h3><p>这个方法帮我们做了数据对双向绑定，让组件变成了受控组件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// createBaseForm.tsx</span><br><span class="line">getFieldDecorator(name, fieldOption) &#123;</span><br><span class="line">  const props = this.getFieldProps(name, fieldOption);</span><br><span class="line">  return fieldElem =&gt; &#123;</span><br><span class="line">    this.renderFields[name] = true;</span><br><span class="line"></span><br><span class="line">    const fieldMeta = this.fieldsStore.getFieldMeta(name);</span><br><span class="line">    const originalProps = fieldElem.props;</span><br><span class="line">    fieldMeta.originalProps = originalProps;</span><br><span class="line">    fieldMeta.ref = fieldElem.ref;</span><br><span class="line">    return React.cloneElement(fieldElem, &#123;</span><br><span class="line">      ...props,</span><br><span class="line">      …this.fieldsStore.getFieldValuePropValue(fieldMeta), </span><br><span class="line">      // &#123;value: ‘xxx’&#125;，将value注入到props上，双向绑定</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>前面提到，form内部状态都是维护在fields和fieldsMeta里的，那么getFieldDecorator肯定对fieldsMeta有做了处理，这一步包含在了 getFieldMeta 中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">getFieldProps(name, usersFieldOption = &#123;&#125;) &#123;</span><br><span class="line">    delete this.clearedFieldMetaCache[name];</span><br><span class="line">    const fieldOption = &#123;</span><br><span class="line">      name,</span><br><span class="line">      trigger: DEFAULT_TRIGGER,</span><br><span class="line">      valuePropName: &#x27;value&#x27;,</span><br><span class="line">      validate: [],</span><br><span class="line">      ...usersFieldOption,</span><br><span class="line">    &#125;;</span><br><span class="line">    …</span><br><span class="line">    const fieldMeta = this.fieldsStore.getFieldMeta(name);</span><br><span class="line">    const inputProps = &#123;</span><br><span class="line">      ...this.fieldsStore.getFieldValuePropValue(fieldOption),</span><br><span class="line">      ref: this.getCacheBind(name, `$&#123;name&#125;__ref`, this.saveRef),</span><br><span class="line">    &#125;;</span><br><span class="line">    …</span><br><span class="line">    const validateRules = normalizeValidateRules(</span><br><span class="line">      validate,</span><br><span class="line">      rules,</span><br><span class="line">      validateTrigger,</span><br><span class="line">    );</span><br><span class="line">    const validateTriggers = getValidateTriggers(validateRules);</span><br><span class="line">    validateTriggers.forEach(action =&gt; &#123;</span><br><span class="line">      if (inputProps[action]) return;</span><br><span class="line">      inputProps[action] = this.getCacheBind(</span><br><span class="line">        name,</span><br><span class="line">        action,</span><br><span class="line">        this.onCollectValidate, </span><br><span class="line">        // 当组件值变化调用 onCollectValidate，写入fields   </span><br><span class="line">      );</span><br><span class="line">    &#125;);</span><br><span class="line">    const meta = &#123;</span><br><span class="line">      ...fieldMeta,</span><br><span class="line">      ...fieldOption,</span><br><span class="line">      validate: validateRules,</span><br><span class="line">    &#125;;</span><br><span class="line">    this.fieldsStore.setFieldMeta(name, meta);</span><br><span class="line">    …</span><br><span class="line">    // This field is rendered, record it</span><br><span class="line">    this.renderFields[name] = true;</span><br><span class="line">    return inputProps;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">getFieldProps(name, usersFieldOption = &#123;&#125;) &#123;</span><br><span class="line">    delete this.clearedFieldMetaCache[name];</span><br><span class="line">    const fieldOption = &#123;</span><br><span class="line">      name,</span><br><span class="line">      trigger: DEFAULT_TRIGGER,</span><br><span class="line">      valuePropName: &#x27;value&#x27;,</span><br><span class="line">      validate: [],</span><br><span class="line">      ...usersFieldOption,</span><br><span class="line">    &#125;;</span><br><span class="line">    …</span><br><span class="line">    const fieldMeta = this.fieldsStore.getFieldMeta(name);</span><br><span class="line">    const inputProps = &#123;</span><br><span class="line">      ...this.fieldsStore.getFieldValuePropValue(fieldOption),</span><br><span class="line">      ref: this.getCacheBind(name, `$&#123;name&#125;__ref`, this.saveRef),</span><br><span class="line">    &#125;;</span><br><span class="line">    …</span><br><span class="line">    const validateRules = normalizeValidateRules(</span><br><span class="line">      validate,</span><br><span class="line">      rules,</span><br><span class="line">      validateTrigger,</span><br><span class="line">    );</span><br><span class="line">    const validateTriggers = getValidateTriggers(validateRules);</span><br><span class="line">    validateTriggers.forEach(action =&gt; &#123;</span><br><span class="line">      if (inputProps[action]) return;</span><br><span class="line">      inputProps[action] = this.getCacheBind(</span><br><span class="line">        name,</span><br><span class="line">        action,</span><br><span class="line">        this.onCollectValidate, </span><br><span class="line">        // 当组件值变化调用 onCollectValidate，写入fields   </span><br><span class="line">      );</span><br><span class="line">    &#125;);</span><br><span class="line">    const meta = &#123;</span><br><span class="line">      ...fieldMeta,</span><br><span class="line">      ...fieldOption,</span><br><span class="line">      validate: validateRules,</span><br><span class="line">    &#125;;</span><br><span class="line">    this.fieldsStore.setFieldMeta(name, meta);</span><br><span class="line">    // 这一步把信息写入了fieldMeta对象</span><br><span class="line">    …</span><br><span class="line">    // This field is rendered, record it</span><br><span class="line">    this.renderFields[name] = true;</span><br><span class="line">    return inputProps;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="validateFields"><a href="#validateFields" class="headerlink" title="validateFields"></a>validateFields</h3><p>validateFields 方法获取表单中对值并且根据校验规则对value进行校验。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">validateFields(ns, opt, cb) &#123;</span><br><span class="line">  const pending = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    const &#123; names, options &#125; = getParams(ns, opt, cb);</span><br><span class="line">    let &#123; callback &#125; = getParams(ns, opt, cb);</span><br><span class="line">    if (!callback || typeof callback === &#x27;function&#x27;) &#123;</span><br><span class="line">      const oldCb = callback;</span><br><span class="line">      callback = (errors, values) =&gt; &#123;</span><br><span class="line">        if (oldCb) &#123;</span><br><span class="line">          oldCb(errors, values);</span><br><span class="line">        &#125;</span><br><span class="line">        if (errors) &#123;</span><br><span class="line">          reject(&#123; errors, values &#125;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          resolve(values);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125; // 兼容 v4从回调改为promise </span><br><span class="line">    const fieldNames = names</span><br><span class="line">      ? this.fieldsStore.getValidFieldsFullName(names)</span><br><span class="line">      : this.fieldsStore.getValidFieldsName();</span><br><span class="line">    const fields = fieldNames</span><br><span class="line">      .filter(name =&gt; &#123;</span><br><span class="line">        const fieldMeta = this.fieldsStore.getFieldMeta(name);</span><br><span class="line">        return hasRules(fieldMeta.validate);</span><br><span class="line">      &#125;)</span><br><span class="line">      .map(name =&gt; &#123;</span><br><span class="line">        const field = this.fieldsStore.getField(name);</span><br><span class="line">        field.value = this.fieldsStore.getFieldValue(name);</span><br><span class="line">        return field;</span><br><span class="line">      &#125;);</span><br><span class="line">    if (!fields.length) &#123;</span><br><span class="line">      callback(null, this.fieldsStore.getFieldsValue(fieldNames));</span><br><span class="line">      return;</span><br><span class="line">    &#125;</span><br><span class="line">    return e;</span><br><span class="line">  &#125;);</span><br><span class="line">  // 从fieldsMeta中取出规则进行校验，使用 async-validator </span><br><span class="line">  this.validateFieldsInternal(</span><br><span class="line">      fields,</span><br><span class="line">      &#123;</span><br><span class="line">        fieldNames,</span><br><span class="line">        options,</span><br><span class="line">      &#125;,</span><br><span class="line">      callback,</span><br><span class="line">    );</span><br><span class="line">  &#125;);</span><br><span class="line">  pending.catch(e =&gt; &#123;</span><br><span class="line">    return e;</span><br><span class="line">  &#125;);</span><br><span class="line">  return pending;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/React-Antd/" rel="tag"># React Antd</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/22/redux%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" rel="prev" title="redux源码分析">
+                  <i class="fa fa-angle-left"></i> redux源码分析
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/04/30/%E8%81%8A%E8%81%8Areact%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84hooks%E6%96%B9%E6%B3%95/" rel="next" title="聊聊react中常用的hooks方法">
+                  聊聊react中常用的hooks方法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Logging</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

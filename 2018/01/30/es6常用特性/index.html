@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.css" integrity="sha256-mdaMxrItEW6hMIVJJNPKuX0B7KCSJQVEv3mVY4N2we4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"renascence.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="使用es6语法开发也有一年多了，总结一下es6中常用的一些技巧。 1. 解构与展开运算符12345const student &#x3D; &#123;  name: &#x27;xiaoming&#x27;,  id: 1,  age: 23,&#125;  如果在es5中想去除student中的变量，需要这样 1const name &#x3D; student.name, id&#x3D;student.id, age&#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es6常用特性">
+<meta property="og:url" content="https://renascence.github.io/2018/01/30/es6%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7/index.html">
+<meta property="og:site_name" content="Logging的博客">
+<meta property="og:description" content="使用es6语法开发也有一年多了，总结一下es6中常用的一些技巧。 1. 解构与展开运算符12345const student &#x3D; &#123;  name: &#x27;xiaoming&#x27;,  id: 1,  age: 23,&#125;  如果在es5中想去除student中的变量，需要这样 1const name &#x3D; student.name, id&#x3D;student.id, age&#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-01-30T14:18:31.000Z">
+<meta property="article:modified_time" content="2026-09-04T08:35:42.825Z">
+<meta property="article:author" content="Logging">
+<meta property="article:tag" content="es6">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://renascence.github.io/2018/01/30/es6%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://renascence.github.io/2018/01/30/es6%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7/","path":"2018/01/30/es6常用特性/","title":"es6常用特性"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>es6常用特性 | Logging的博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.umd.js" integrity="sha256-QnJV4HT5r8i89ovZGRD86iynZqHerEbT2xt69vDM36I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Logging的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">https://github.com/Renascence</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%A7%A3%E6%9E%84%E4%B8%8E%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">1. 解构与展开运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-arrow-funtion"><span class="nav-number">2.</span> <span class="nav-text">2. arrow funtion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">3. 函数默认参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Promise"><span class="nav-number">4.</span> <span class="nav-text">4. Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-fetch"><span class="nav-number">5.</span> <span class="nav-text">5. fetch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-const-%E5%92%8C-let"><span class="nav-number">6.</span> <span class="nav-text">6. const 和 let</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Logging</p>
+  <div class="site-description" itemprop="description">讲道理此处应有描述，可是我不讲道理。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Renascence" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Renascence" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2018/01/30/es6%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="es6常用特性 | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          es6常用特性
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-01-30 22:18:31" itemprop="dateCreated datePublished" datetime="2018-01-30T22:18:31+08:00">2018-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>使用es6语法开发也有一年多了，总结一下es6中常用的一些技巧。</p>
+<h2 id="1-解构与展开运算符"><a href="#1-解构与展开运算符" class="headerlink" title="1. 解构与展开运算符"></a>1. 解构与展开运算符</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const student = &#123;</span><br><span class="line">  name: &#x27;xiaoming&#x27;,</span><br><span class="line">  id: 1,</span><br><span class="line">  age: 23,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果在es5中想去除student中的变量，需要这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const name = student.name, id=student.id, age=student.age</span><br></pre></td></tr></table></figure>
+
+<p>这样的代码过于繁琐，我们可以使用es6的解构语法来优化它。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const &#123;name , age, id&#125; = student</span><br></pre></td></tr></table></figure>
+
+<p>展开运算符和解构结合使用也能简化部分代码，比如student这个对象中有3个属性值，现在需要其中除去name剩下的2个字段组成新的对象，可以这么做</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const &#123;name, ...rest&#125; = student</span><br><span class="line">rest // &#123;age: 23, id:1&#125; 注意：此操作为深拷贝</span><br></pre></td></tr></table></figure>
+
+<p>展开运算符在开发中使用最多的还是要数redux了，不使用展开运算符：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function todoApp(state = initialState, action) &#123;</span><br><span class="line">  switch (action.type) &#123;</span><br><span class="line">    case SET_VISIBILITY_FILTER:</span><br><span class="line">      return Object.assign(&#123;&#125;, state, &#123;</span><br><span class="line">        visibilityFilter: action.filter</span><br><span class="line">      &#125;)</span><br><span class="line">    default:</span><br><span class="line">      return state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用后：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function todoApp(state = initialState, action) &#123;</span><br><span class="line">  switch (action.type) &#123;</span><br><span class="line">    case SET_VISIBILITY_FILTER:</span><br><span class="line">      return &#123; ...state, visibilityFilter: action.filter &#125;</span><br><span class="line">    default:</span><br><span class="line">      return state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>替换了Object.assign方法，代码更简洁。</p>
+<p>小技巧：使用解构交换两个变量的值:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[a,b] = [b,a]</span><br></pre></td></tr></table></figure>
+<p>最早看到这种操作方式是在Python中，现在es6也支持了。<br>第一次看到这个代码惊为天人，省去了中间变量的声明，把三行代码缩减至一行，确实是很实用的功能。</p>
+<h2 id="2-arrow-funtion"><a href="#2-arrow-funtion" class="headerlink" title="2. arrow funtion"></a>2. arrow funtion</h2><p>箭头函数简化了function语法，同时解决了this指向问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Person() &#123;</span><br><span class="line">  this.age = 0;</span><br><span class="line">  setInterval(function() &#123;</span><br><span class="line">    this.age // 非严格模式指向window对象</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在箭头函数出现之前我们一般这么解决问题:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Person() &#123;</span><br><span class="line">  var that = this;</span><br><span class="line">  that.age = 0;</span><br><span class="line">  setInterval(function() &#123;</span><br><span class="line">    that.age++; // 在外部申明变量指向this，在函数内部调用</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>借助箭头函数，我们可以这样写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Person()&#123;</span><br><span class="line">  this.age = 0;</span><br><span class="line">  setInterval(() =&gt; &#123;</span><br><span class="line">    this.age++;</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外，箭头函数中的this不会被call&#x2F;bind改变指向。</p>
+<p>箭头函数不绑定arguments对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const arguments = 42;</span><br><span class="line">const arr = () =&gt; arguments; </span><br><span class="line">arr() // 42 全部变量 可以使用剩余参数方式访问传入参数</span><br></pre></td></tr></table></figure>
+<h2 id="3-函数默认参数"><a href="#3-函数默认参数" class="headerlink" title="3. 函数默认参数"></a>3. 函数默认参数</h2><p>在es5中，对传入参数判断一般这样写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function multiply(a,b) &#123;</span><br><span class="line">  b = (typeof b !== &#x27;undefined&#x27;) ?  b : 1;</span><br><span class="line">  return a * b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>借助默认参数，可以改写成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function multiply(a, b = 1) &#123; // 默认参数</span><br><span class="line">  return a * b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Promise"><a href="#4-Promise" class="headerlink" title="4. Promise"></a>4. Promise</h2><p>Promise 解决了es5中回调地狱的问题，让代码逻辑变得更加直观。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const promise = new Promise((resolve,reject)=&gt; &#123;</span><br><span class="line">  setTimeout(() =&gt; &#123; // 创建异步任务</span><br><span class="line">    if(data) &#123;</span><br><span class="line">      resolve(data) // 正常返回数据</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      reject(err) // 异常</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 指定回调函数</span><br><span class="line">promise.then(res =&gt; &#123;</span><br><span class="line">  console.log(res)  // 监听成功的回调</span><br><span class="line">&#125;).catch(err =&gt; &#123;</span><br><span class="line">  console.log(err)  // 监听错误的回调</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>为了让代码看上去更简洁，通常还会使用es7规范中的async&#x2F;await语法（通过webpakck插件转译）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">async function getData(url)&#123;</span><br><span class="line">  return fetch(url)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">  const data = await getData(url)</span><br><span class="line">&#125; catch(err) &#123;</span><br><span class="line">  console.log(err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 如果有多个互不依赖的请求可以使用promise.all提升效率</span><br><span class="line">const [res1,res2,res3] = await Promise.all([getData1,getData2,getData3])</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-fetch"><a href="#5-fetch" class="headerlink" title="5. fetch"></a>5. fetch</h2><p>在过去浏览器发起请求都是ajax,现在可以使用新的api fetch。<br>准确来说 fetch 应该属于es7的标准,但是大部分浏览器都已经支持,而且这个特性我使用比较多很方便,所以一起列出来。<br>fetch返回的是promise对象,可以直接使用then和catch方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// 默认为get </span><br><span class="line">fetch(url)</span><br><span class="line">.then((response) =&gt; &#123;</span><br><span class="line">  console.log(response)</span><br><span class="line">&#125;)</span><br><span class="line">.catch((err) =&gt; &#123;</span><br><span class="line">  console.log(err)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 设置post请求参数</span><br><span class="line">const option = &#123;</span><br><span class="line">  method: &#x27;POST&#x27;,</span><br><span class="line">  body: &#123;&#125;,</span><br><span class="line">&#125;</span><br><span class="line">fetch(url, option)</span><br><span class="line">.then((response) =&gt; &#123;</span><br><span class="line">  console.log(response)</span><br><span class="line">&#125;)</span><br><span class="line">.catch((err) =&gt; &#123;</span><br><span class="line">  console.log(err)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>注意: </p>
+<ul>
+<li>Fetch 请求默认是不带 cookie 的，需要设置 fetch(url, {credentials: ‘include’})</li>
+<li>服务器返回 400，500 错误码时并不会 reject，只有网络错误这些导致请求不能完成时，fetch 才会被 reject。</li>
+</ul>
+<h2 id="6-const-和-let"><a href="#6-const-和-let" class="headerlink" title="6. const 和 let"></a>6. const 和 let</h2><p>在es5中，只有函数作用域和全局作用域的概念，es6中新引入了块级作用域的概念。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  let a = 1;</span><br><span class="line">&#125;</span><br><span class="line">a // Uncaught ReferenceError: a is not defined</span><br></pre></td></tr></table></figure>
+<p>var申明的变量存在变量提升，const和let不存在。</p>
+<p>对于简单类型，使用const 定义常量，使用let 定义变量。</p>
+<p>对于复杂类型来说，都应该使用const 定义。</p>
+<p>使用const声明的复杂类型保证了变量的类型不会改变,但是不能保证复杂元素中的值不被改变。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const a = &#123;b:1&#125;</span><br><span class="line">a = 1  // Uncaught TypeError: Assignment to constant variable.</span><br><span class="line">a.b = 2</span><br><span class="line">a //  &#123;b:2&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/es6/" rel="tag"># es6</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/12/03/js%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%AD%E7%9A%84AMD%E5%92%8CCMD%E8%A7%84%E8%8C%83/" rel="prev" title="js模块化中的AMD和CMD规范">
+                  <i class="fa fa-angle-left"></i> js模块化中的AMD和CMD规范
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/03/10/react-router-v4-code-split/" rel="next" title="react-router v4 code split">
+                  react-router v4 code split <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Logging</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

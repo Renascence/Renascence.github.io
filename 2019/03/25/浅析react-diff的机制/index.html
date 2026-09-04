@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.css" integrity="sha256-mdaMxrItEW6hMIVJJNPKuX0B7KCSJQVEv3mVY4N2we4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"renascence.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="一、 基本概念 Real DOM：浏览器中真实存在的节点。 Virtual dom：使用js描述Real DOM的对象。  Virtual dom 转化为 Real DOM：  二、 为什么要使用Virtual DOM  从浏览器的角度来说，js执行肯定没有直接渲染html快才对，那我们为什么需要v-dom呢。先从浏览器的工作原说起：  Repaint（重绘）：元素产生了不影响排版的情况下后对这个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅析react diff的机制">
+<meta property="og:url" content="https://renascence.github.io/2019/03/25/%E6%B5%85%E6%9E%90react-diff%E7%9A%84%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:site_name" content="Logging的博客">
+<meta property="og:description" content="一、 基本概念 Real DOM：浏览器中真实存在的节点。 Virtual dom：使用js描述Real DOM的对象。  Virtual dom 转化为 Real DOM：  二、 为什么要使用Virtual DOM  从浏览器的角度来说，js执行肯定没有直接渲染html快才对，那我们为什么需要v-dom呢。先从浏览器的工作原说起：  Repaint（重绘）：元素产生了不影响排版的情况下后对这个">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/RealDOM.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/VirtualDOM.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/v2r.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/browser.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/treeDiff.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/componentDiff.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/domChange.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/domDIff.png">
+<meta property="article:published_time" content="2019-03-25T13:15:51.000Z">
+<meta property="article:modified_time" content="2026-09-04T08:35:42.840Z">
+<meta property="article:author" content="Logging">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/RealDOM.png">
+
+
+<link rel="canonical" href="https://renascence.github.io/2019/03/25/%E6%B5%85%E6%9E%90react-diff%E7%9A%84%E6%9C%BA%E5%88%B6/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://renascence.github.io/2019/03/25/%E6%B5%85%E6%9E%90react-diff%E7%9A%84%E6%9C%BA%E5%88%B6/","path":"2019/03/25/浅析react-diff的机制/","title":"浅析react diff的机制"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>浅析react diff的机制 | Logging的博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.umd.js" integrity="sha256-QnJV4HT5r8i89ovZGRD86iynZqHerEbT2xt69vDM36I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Logging的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">https://github.com/Renascence</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Real-DOM%EF%BC%9A%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9C%9F%E5%AE%9E%E5%AD%98%E5%9C%A8%E7%9A%84%E8%8A%82%E7%82%B9%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">Real DOM：浏览器中真实存在的节点。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8Virtual-DOM"><span class="nav-number">2.</span> <span class="nav-text">二、 为什么要使用Virtual DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81-React-diff%E7%AD%96%E7%95%A5"><span class="nav-number">3.</span> <span class="nav-text">三、 React diff策略</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Logging</p>
+  <div class="site-description" itemprop="description">讲道理此处应有描述，可是我不讲道理。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Renascence" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Renascence" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2019/03/25/%E6%B5%85%E6%9E%90react-diff%E7%9A%84%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="浅析react diff的机制 | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浅析react diff的机制
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-03-25 21:15:51" itemprop="dateCreated datePublished" datetime="2019-03-25T21:15:51+08:00">2019-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>一、 基本概念</p>
+<h2 id="Real-DOM：浏览器中真实存在的节点。"><a href="#Real-DOM：浏览器中真实存在的节点。" class="headerlink" title="Real DOM：浏览器中真实存在的节点。"></a>Real DOM：浏览器中真实存在的节点。</h2><p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/RealDOM.png" alt="Real DOM"></p>
+<p>Virtual dom：使用js描述Real DOM的对象。</p>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/VirtualDOM.png" alt="Virtual DOM"></p>
+<p>Virtual dom 转化为 Real DOM：</p>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/v2r.png" alt="Virtual DOM -&gt; Real DOM"></p>
+<h2 id="二、-为什么要使用Virtual-DOM"><a href="#二、-为什么要使用Virtual-DOM" class="headerlink" title="二、 为什么要使用Virtual DOM"></a>二、 为什么要使用Virtual DOM</h2><p>  从浏览器的角度来说，js执行肯定没有直接渲染html快才对，那我们为什么需要v-dom呢。先从浏览器的工作原说起：</p>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/browser.png" alt="浏览器工作原理"></p>
+<p>Repaint（重绘）：元素产生了不影响排版的情况下后对这个元素进行重新绘制的过程。</p>
+<p>Reflow（重排）：元素产生了对文档树排版有影响的样式变化，对所有受影响的dom节点进行重新排版的过程。</p>
+<p>提高网页性能，就是要降低”重排”和”重绘”的频率和成本，尽量少触发重新渲染。这就是v-dom帮我们完成的事情。<br>（Tips：所以一些对dom操作不多对页面，还是尽量使用html编写，或者对速度有要求的页面可以通过ssr实现效果。）</p>
+<p>浏览器对于重排和重绘的优化：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">div.style.color = &#x27;red&#x27;;</span><br><span class="line">div.style.marginTop = &#x27;10px&#x27; // 浏览器会合并执行，只触发一次重绘和重排</span><br></pre></td></tr></table></figure>
+
+<p>浏览器无法优化的情况：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div.style.color = &#x27;red&#x27;;</span><br><span class="line">const margin = parseInt(div.style.marginTop); // 无法优化，立即进行一次重绘</span><br><span class="line">div.style.marginTop = &#x27;10px&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>面对浏览器无法优化的情况，我们就需要v-dom的帮助。</p>
+<h2 id="三、-React-diff策略"><a href="#三、-React-diff策略" class="headerlink" title="三、 React diff策略"></a>三、 React diff策略</h2><ul>
+<li>tree diff：Web UI 中 DOM 节点跨层级的移动操作特别少，可以忽略不计。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/treeDiff.png" alt="tree diff"></p>
+<ul>
+<li>component diff：拥有相同类的两个组件将会生成相似的树形结构，拥有不同类的两个组件将会生成不同的树形结构</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/componentDiff.png" alt="component diff"></p>
+<ul>
+<li><p>element diff：对于同一层级的一组子节点，它们可以通过唯一 id 进行区分。</p>
+<ul>
+<li>INSERT_MARKUP，新的 component 类型不在老集合里， 即是全新的节点，需要对新节点执行插入操作。 </li>
+<li>MOVE_EXISTING，在老集合有新 component 类型，且 element 是可更新的类型，generateComponentChildren 已调用 receiveComponent，这种情况下 prevChild&#x3D;nextChild，就需要做移动操作，可以复用以前的 DOM 节点。 </li>
+<li>REMOVE_NODE，老 component 类型，在新集合里也有，但对应的 element 不同则不能直接复用和更新，需要执行删除操作，或者老 component 不在新集合里的，也需要执行删除操作。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/domChange.png" alt="domChange"></p>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/domDIff.png" alt="domDIff"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/03/10/react-router-v4-code-split/" rel="prev" title="react-router v4 code split">
+                  <i class="fa fa-angle-left"></i> react-router v4 code split
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/01/04/%E8%81%8A%E8%81%8A%E5%89%8D%E7%AB%AF%E5%9F%8B%E7%82%B9%E7%9A%84%E5%AE%9E%E7%8E%B0/" rel="next" title="聊聊前端埋点的实现">
+                  聊聊前端埋点的实现 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Logging</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

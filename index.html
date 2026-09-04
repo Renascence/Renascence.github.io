@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.css" integrity="sha256-mdaMxrItEW6hMIVJJNPKuX0B7KCSJQVEv3mVY4N2we4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"renascence.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="讲道理此处应有描述，可是我不讲道理。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Logging的博客">
+<meta property="og:url" content="https://renascence.github.io/index.html">
+<meta property="og:site_name" content="Logging的博客">
+<meta property="og:description" content="讲道理此处应有描述，可是我不讲道理。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Logging">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://renascence.github.io/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Logging的博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.umd.js" integrity="sha256-QnJV4HT5r8i89ovZGRD86iynZqHerEbT2xt69vDM36I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Logging的博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">https://github.com/Renascence</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Logging</p>
+  <div class="site-description" itemprop="description">讲道理此处应有描述，可是我不讲道理。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Renascence" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Renascence" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2026/08/28/%E5%AE%A1%E6%89%B9%E6%B5%81%E7%A8%8B%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/08/28/%E5%AE%A1%E6%89%B9%E6%B5%81%E7%A8%8B%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">审批流程引擎开发</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-08-28 09:54:24" itemprop="dateCreated datePublished" datetime="2026-08-28T09:54:24+08:00">2026-08-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="审批流程引擎开发实践"><a href="#审批流程引擎开发实践" class="headerlink" title="审批流程引擎开发实践"></a>审批流程引擎开发实践</h1><blockquote>
+<p>从 CRUD Boy 到流程引擎开发者的踩坑实录</p>
+</blockquote>
+<p>之前做后端功能开发，大多是些 CRUD 或者接口聚合的 BFF 层工作，这次遇到审批流程这种相对复杂的场景，特地记录下整个开发过程，希望能给遇到类似需求的同学一些参考。</p>
+<h2 id="一、需求分析"><a href="#一、需求分析" class="headerlink" title="一、需求分析"></a>一、需求分析</h2><p>核心需求梳理出来有三点：</p>
+<ol>
+<li><strong>多级审批 + 前置依赖</strong>：后续节点必须等前置条件满足后，才能变为可审批状态</li>
+<li><strong>流程可配置</strong>：变更审批流程时，尽量避免修改代码</li>
+<li><strong>多类型支持</strong>：不同的审批类型（如产品线变更、合同审批）需要走不同的流程链路</li>
+</ol>
+<p>基于第 2、3 点，我们需要一个<strong>审批模板表</strong>来存储流程定义，方便后续调整。</p>
+<h2 id="二、表结构设计"><a href="#二、表结构设计" class="headerlink" title="二、表结构设计"></a>二、表结构设计</h2><h3 id="2-1-三张核心表"><a href="#2-1-三张核心表" class="headerlink" title="2.1 三张核心表"></a>2.1 三张核心表</h3><p>整个审批模块由三张表构成，各司其职：</p>
+<table>
+<thead>
+<tr>
+<th align="left">表名</th>
+<th align="left">职责</th>
+<th align="left">类比</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>模板表</strong></td>
+<td align="left">存储审批流程的”图纸”（节点定义 + 前置规则）</td>
+<td align="left">生产线设计图</td>
+</tr>
+<tr>
+<td align="left"><strong>申请主表</strong></td>
+<td align="left">记录一次申请的概要信息（申请人、参数、整体状态）</td>
+<td align="left">工单卡片</td>
+</tr>
+<tr>
+<td align="left"><strong>申请子表</strong></td>
+<td align="left">记录该申请下每个节点的运行状态（审批人、意见、时间）</td>
+<td align="left">流水线各工位记录</td>
+</tr>
+</tbody></table>
+<h3 id="2-2-模板表"><a href="#2-2-模板表" class="headerlink" title="2.2 模板表"></a>2.2 模板表</h3><table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">类型</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">申请类型</td>
+<td align="left">string</td>
+<td align="left">如：产品线变更、合同审批</td>
+</tr>
+<tr>
+<td align="left">节点</td>
+<td align="left">string</td>
+<td align="left">节点标识，按 <code>node_01</code>, <code>node_02</code>… 规则命名</td>
+</tr>
+<tr>
+<td align="left">前置条件</td>
+<td align="left">json</td>
+<td align="left">AST 表达式，满足后当前节点才会激活</td>
+</tr>
+<tr>
+<td align="left">状态</td>
+<td align="left">enum</td>
+<td align="left">待审批 &#x2F; 审批中 &#x2F; 已通过 &#x2F; 已退回 &#x2F; 已驳回</td>
+</tr>
+<tr>
+<td align="left">审批人</td>
+<td align="left">string</td>
+<td align="left">该节点的审批人标识</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-申请主表"><a href="#2-3-申请主表" class="headerlink" title="2.3 申请主表"></a>2.3 申请主表</h3><table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">类型</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">id</td>
+<td align="left">string</td>
+<td align="left">主键</td>
+</tr>
+<tr>
+<td align="left">申请类型</td>
+<td align="left">string</td>
+<td align="left">关联模板</td>
+</tr>
+<tr>
+<td align="left">申请人</td>
+<td align="left">string</td>
+<td align="left">谁发起的</td>
+</tr>
+<tr>
+<td align="left">摘要</td>
+<td align="left">string</td>
+<td align="left">一句话说明</td>
+</tr>
+<tr>
+<td align="left">参数</td>
+<td align="left">json</td>
+<td align="left">业务参数（如：新负责人、产品线名称），供审批通过后执行变更</td>
+</tr>
+<tr>
+<td align="left">审批状态</td>
+<td align="left">enum</td>
+<td align="left">整个申请的聚合状态</td>
+</tr>
+<tr>
+<td align="left">附件</td>
+<td align="left">string</td>
+<td align="left">附件信息</td>
+</tr>
+</tbody></table>
+<p><strong>为什么需要主表？</strong></p>
+<ul>
+<li><strong>统一状态存储</strong>：审批流程可能有分支，并非所有节点都会走到。如果按”所有节点都通过”来判断流程结束，在有分支的场景下会很麻烦。主表单独维护一个聚合状态，查询时 O(1) 就能知道申请状态。</li>
+<li><strong>参数与摘要隔离</strong>：业务参数（如变更内容）属于整个申请，没必要在每个节点都存一份，放在主表更合理。</li>
+</ul>
+<h3 id="2-4-申请子表"><a href="#2-4-申请子表" class="headerlink" title="2.4 申请子表"></a>2.4 申请子表</h3><table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">类型</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">id</td>
+<td align="left">string</td>
+<td align="left">主键</td>
+</tr>
+<tr>
+<td align="left">mainId</td>
+<td align="left">string</td>
+<td align="left">关联主表</td>
+</tr>
+<tr>
+<td align="left">节点</td>
+<td align="left">string</td>
+<td align="left">对应模板中的节点标识</td>
+</tr>
+<tr>
+<td align="left">状态</td>
+<td align="left">enum</td>
+<td align="left">当前节点状态</td>
+</tr>
+<tr>
+<td align="left">审批人</td>
+<td align="left">string</td>
+<td align="left">谁负责审批</td>
+</tr>
+<tr>
+<td align="left">前置条件</td>
+<td align="left">json</td>
+<td align="left">从模板复制过来的规则（用于引擎计算）</td>
+</tr>
+<tr>
+<td align="left">审批意见</td>
+<td align="left">string</td>
+<td align="left">审批人填写的意见</td>
+</tr>
+<tr>
+<td align="left">附件</td>
+<td align="left">string</td>
+<td align="left">审批附件</td>
+</tr>
+</tbody></table>
+<p><strong>发起申请时的流程</strong>：</p>
+<ol>
+<li>申请人提交 → 主表新增一条记录</li>
+<li>触发器&#x2F;后台任务根据申请类型从模板表复制节点定义 → 插入子表（所有节点初始状态为”待审批”）</li>
+<li>引擎根据前置条件自动计算第一个可激活的节点 → 状态变为”审批中” → 发送通知给审批人</li>
+<li>审批人操作 → 引擎级联更新后续节点状态 → 直到流程结束</li>
+</ol>
+<h2 id="三、前置条件系统（AST-表达式）"><a href="#三、前置条件系统（AST-表达式）" class="headerlink" title="三、前置条件系统（AST 表达式）"></a>三、前置条件系统（AST 表达式）</h2><h3 id="3-1-为什么需要-AST？"><a href="#3-1-为什么需要-AST？" class="headerlink" title="3.1 为什么需要 AST？"></a>3.1 为什么需要 AST？</h3><p>前置条件的常见形式：</p>
+<ul>
+<li><strong>节点依赖</strong>：<code>node_01</code> 审批通过后，<code>node_02</code> 才能开始</li>
+<li><strong>表单条件</strong>：金额 &gt; 10000 时走总监审批，否则跳过</li>
+<li><strong>组合条件</strong>：（部门经理通过 AND 金额 &gt; 50000）OR 总监特批</li>
+</ul>
+<p>如果用字符串模板或硬编码，后期维护会非常痛苦。所以采用 <strong>AST（抽象语法树）</strong> 来结构化存储条件。</p>
+<h3 id="3-2-类型定义"><a href="#3-2-类型定义" class="headerlink" title="3.2 类型定义"></a>3.2 类型定义</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 节点类型</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">AstType</span> = <span class="string">&#x27;AND&#x27;</span> | <span class="string">&#x27;OR&#x27;</span> | <span class="string">&#x27;NOT&#x27;</span> | <span class="string">&#x27;LEAF&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">LeafKey</span> = <span class="string">&#x27;NODE_STATUS&#x27;</span> | <span class="string">&#x27;FORM_FIELD&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">Operator</span> = <span class="string">&#x27;==&#x27;</span> | <span class="string">&#x27;!=&#x27;</span> | <span class="string">&#x27;&gt;&#x27;</span> | <span class="string">&#x27;&lt;&#x27;</span> | <span class="string">&#x27;&gt;=&#x27;</span> | <span class="string">&#x27;&lt;=&#x27;</span> | <span class="string">&#x27;in&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引擎内部状态</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">EngineStatus</span> =</span><br><span class="line">  | <span class="string">&#x27;PENDING&#x27;</span>     <span class="comment">// 待审批</span></span><br><span class="line">  | <span class="string">&#x27;PROCESSING&#x27;</span>  <span class="comment">// 审批中</span></span><br><span class="line">  | <span class="string">&#x27;PASSED&#x27;</span>      <span class="comment">// 已通过</span></span><br><span class="line">  | <span class="string">&#x27;RETURNED&#x27;</span>    <span class="comment">// 已退回</span></span><br><span class="line">  | <span class="string">&#x27;REJECTED&#x27;</span>    <span class="comment">// 已驳回</span></span><br><span class="line">  | <span class="string">&#x27;BLOCKED&#x27;</span>     <span class="comment">// 阻塞中</span></span><br><span class="line">  | <span class="string">&#x27;SKIPPED&#x27;</span>;    <span class="comment">// 已跳过</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// AST 节点定义</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> <span class="title class_">AstNode</span> &#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="title class_">AstType</span>;</span><br><span class="line">  <span class="attr">children</span>?: <span class="title class_">AstNode</span>[];   <span class="comment">// AND / OR 使用</span></span><br><span class="line">  <span class="attr">child</span>?: <span class="title class_">AstNode</span>;        <span class="comment">// NOT 使用</span></span><br><span class="line">  <span class="attr">key</span>?: <span class="title class_">LeafKey</span>;          <span class="comment">// LEAF 使用</span></span><br><span class="line">  <span class="attr">nodeId</span>?: <span class="built_in">string</span>;        <span class="comment">// NODE_STATUS 时使用</span></span><br><span class="line">  <span class="attr">expected</span>?: <span class="title class_">EngineStatus</span> | <span class="title class_">EngineStatus</span>[];</span><br><span class="line">  <span class="attr">field</span>?: <span class="built_in">string</span>;         <span class="comment">// FORM_FIELD 时使用</span></span><br><span class="line">  <span class="attr">value</span>?: <span class="built_in">string</span> | <span class="built_in">number</span> | <span class="built_in">boolean</span> | <span class="built_in">any</span>[];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-前置条件示例"><a href="#3-3-前置条件示例" class="headerlink" title="3.3 前置条件示例"></a>3.3 前置条件示例</h3><p><strong>单个节点依赖：判断 node_01 是否已通过</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;LEAF&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;key&quot;</span><span class="punctuation">:</span> <span class="string">&quot;NODE_STATUS&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;nodeId&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node_01&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;expected&quot;</span><span class="punctuation">:</span> <span class="string">&quot;PASSED&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>分支判断：部门属于指定列表</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;LEAF&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;key&quot;</span><span class="punctuation">:</span> <span class="string">&quot;FORM_FIELD&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;field&quot;</span><span class="punctuation">:</span> <span class="string">&quot;department&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;operator&quot;</span><span class="punctuation">:</span> <span class="string">&quot;in&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;value&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;研发部&quot;</span><span class="punctuation">,</span> <span class="string">&quot;产品部&quot;</span><span class="punctuation">,</span> <span class="string">&quot;设计部&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂组合：（A AND B）OR （金额&gt;10000 AND C）</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;OR&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;children&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;AND&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;children&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;LEAF&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;key&quot;</span><span class="punctuation">:</span> <span class="string">&quot;NODE_STATUS&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;nodeId&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node_A&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;expected&quot;</span><span class="punctuation">:</span> <span class="string">&quot;PASSED&quot;</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;LEAF&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;key&quot;</span><span class="punctuation">:</span> <span class="string">&quot;NODE_STATUS&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;nodeId&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node_B&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;expected&quot;</span><span class="punctuation">:</span> <span class="string">&quot;PASSED&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;AND&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;children&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;LEAF&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;key&quot;</span><span class="punctuation">:</span> <span class="string">&quot;FORM_FIELD&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;field&quot;</span><span class="punctuation">:</span> <span class="string">&quot;amount&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;operator&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&gt;&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;value&quot;</span><span class="punctuation">:</span> <span class="number">10000</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;LEAF&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;key&quot;</span><span class="punctuation">:</span> <span class="string">&quot;NODE_STATUS&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;nodeId&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node_C&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;expected&quot;</span><span class="punctuation">:</span> <span class="string">&quot;PASSED&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-FORM-FIELD-的-value-如何传入？"><a href="#3-4-FORM-FIELD-的-value-如何传入？" class="headerlink" title="3.4 FORM_FIELD 的 value 如何传入？"></a>3.4 FORM_FIELD 的 value 如何传入？</h3><p><code>FORM_FIELD</code> 的 <code>value</code> 是通过引擎运行时的 <code>context.formData</code> 传入的：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> result = engine.<span class="title function_">propagateStatusChange</span>(<span class="string">&#x27;node_01&#x27;</span>, <span class="string">&#x27;PASSED&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">formData</span>: &#123;</span><br><span class="line">    <span class="attr">amount</span>: <span class="number">15000</span>,      <span class="comment">// 对应 AST 中的 field: &quot;amount&quot;</span></span><br><span class="line">    <span class="attr">department</span>: <span class="string">&#x27;研发部&#x27;</span> <span class="comment">// 对应 AST 中的 field: &quot;department&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>引擎内部会从 <code>context.formData</code> 中根据 <code>field</code> 取值，再与 AST 中的 <code>value</code> 进行比较。</p>
+<h2 id="四、审批引擎实现"><a href="#四、审批引擎实现" class="headerlink" title="四、审批引擎实现"></a>四、审批引擎实现</h2><h3 id="4-1-引擎核心能力"><a href="#4-1-引擎核心能力" class="headerlink" title="4.1 引擎核心能力"></a>4.1 引擎核心能力</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">ApprovalStateEngine</span> &#123;</span><br><span class="line">  <span class="comment">// 核心方法：修改某个节点状态，自动级联影响所有下游节点</span></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">propagateStatusChange</span>(</span><br><span class="line">    <span class="attr">nodeId</span>: <span class="built_in">string</span>,</span><br><span class="line">    <span class="attr">newStatus</span>: <span class="title class_">EngineStatus</span>,</span><br><span class="line">    <span class="attr">extraContext</span>?: &#123; <span class="attr">formData</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">unknown</span>&gt; &#125;</span><br><span class="line">  ): &#123;</span><br><span class="line">    <span class="attr">changes</span>: <span class="title class_">StatusChangeItem</span>[];   <span class="comment">// 状态发生变化的节点列表</span></span><br><span class="line">    <span class="attr">isFinished</span>: <span class="built_in">boolean</span>;           <span class="comment">// 流程是否已结束</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>入参</strong>：</p>
+<ul>
+<li><code>nodeId</code>：要修改状态的节点 ID</li>
+<li><code>newStatus</code>：目标状态（如 <code>&#39;PASSED&#39;</code>）</li>
+<li><code>extraContext.formData</code>：表单数据（用于 <code>FORM_FIELD</code> 条件判断）</li>
+</ul>
+<p><strong>返回值</strong>：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">StatusChangeItem</span> &#123;</span><br><span class="line">  <span class="attr">nodeId</span>: <span class="built_in">string</span>;        <span class="comment">// 受影响的节点 ID</span></span><br><span class="line">  <span class="attr">oldStatus</span>: <span class="title class_">EngineStatus</span>;</span><br><span class="line">  <span class="attr">newStatus</span>: <span class="title class_">EngineStatus</span>;</span><br><span class="line">  <span class="attr">reason</span>?: <span class="built_in">string</span>;       <span class="comment">// 变更原因（如&quot;前置条件已满足，进入审批中&quot;）</span></span><br><span class="line">  <span class="attr">node</span>: <span class="title class_">EngineNode</span>;      <span class="comment">// 完整节点对象（含名称、审批人等）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>changes</code>：所有状态发生变化的节点列表</li>
+<li><code>isFinished</code>：流程是否已结束（基于引擎内部所有节点状态计算）</li>
+</ul>
+<h3 id="4-2-级联状态传播核心实现"><a href="#4-2-级联状态传播核心实现" class="headerlink" title="4.2 级联状态传播核心实现"></a>4.2 级联状态传播核心实现</h3><p>引擎内部通过以下流程完成级联更新：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────────────────────────────────────┐</span><br><span class="line">│                        propagateStatusChange 核心流程                       │</span><br><span class="line">├─────────────────────────────────────────────────────────────────────────────┤</span><br><span class="line">│                                                                             │</span><br><span class="line">│  1. 更新目标节点状态（如 node_01: PENDING → PASSED）                        │</span><br><span class="line">│                         ↓                                                   │</span><br><span class="line">│  2. 构建依赖图（从 AST 中提取所有 nodeId 引用）                             │</span><br><span class="line">│                         ↓                                                   │</span><br><span class="line">│  3. 获取所有下游节点（直接或间接依赖于目标节点的节点）                       │</span><br><span class="line">│                         ↓                                                   │</span><br><span class="line">│  4. 按层级排序后迭代计算                                                    │</span><br><span class="line">│       ├── 评估每个节点的前置条件                                            │</span><br><span class="line">│       ├── 条件满足：PENDING/BLOCKED → PROCESSING                           │</span><br><span class="line">│       └── 条件不满足：PENDING/PROCESSING → BLOCKED                         │</span><br><span class="line">│                         ↓                                                   │</span><br><span class="line">│  5. 返回所有受影响节点列表 + isFinished 标志                                │</span><br><span class="line">│                                                                             │</span><br><span class="line">└─────────────────────────────────────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>核心代码如下：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">propagateStatusChange</span>(</span><br><span class="line">  <span class="attr">nodeId</span>: <span class="built_in">string</span>,</span><br><span class="line">  <span class="attr">newStatus</span>: <span class="title class_">EngineStatus</span>,</span><br><span class="line">  <span class="attr">extraContext</span>?: &#123; <span class="attr">formData</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">unknown</span>&gt; &#125;,</span><br><span class="line">): &#123; <span class="attr">changes</span>: <span class="title class_">StatusChangeItem</span>[]; <span class="attr">isFinished</span>: <span class="built_in">boolean</span> &#125; &#123;</span><br><span class="line">  <span class="keyword">const</span> targetNode = <span class="variable language_">this</span>.<span class="property">nodeMap</span>.<span class="title function_">get</span>(nodeId);</span><br><span class="line">  <span class="keyword">const</span> <span class="attr">changes</span>: <span class="title class_">StatusChangeItem</span>[] = [];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1. 更新目标节点</span></span><br><span class="line">  <span class="keyword">const</span> oldStatus = targetNode.<span class="property">status</span>;</span><br><span class="line">  targetNode.<span class="property">status</span> = newStatus;</span><br><span class="line">  changes.<span class="title function_">push</span>(&#123; nodeId, oldStatus, newStatus, <span class="attr">node</span>: targetNode &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 构建依赖图，找出所有下游节点</span></span><br><span class="line">  <span class="keyword">const</span> depMap = <span class="variable language_">this</span>.<span class="title function_">buildDependencyMap</span>();          <span class="comment">// 从 AST 提取 nodeId 引用</span></span><br><span class="line">  <span class="keyword">const</span> downstreamIds = <span class="variable language_">this</span>.<span class="title function_">getDownstreamNodes</span>(nodeId, depMap);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 按层级排序后迭代传播</span></span><br><span class="line">  <span class="keyword">const</span> sorted = downstreamIds</span><br><span class="line">    .<span class="title function_">map</span>(<span class="function"><span class="params">id</span> =&gt;</span> <span class="variable language_">this</span>.<span class="property">nodeMap</span>.<span class="title function_">get</span>(id))</span><br><span class="line">    .<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.<span class="property">level</span> - b.<span class="property">level</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> iteration = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (iteration &lt; <span class="variable language_">this</span>.<span class="property">nodes</span>.<span class="property">length</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> hasChanges = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> node <span class="keyword">of</span> sorted) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="title function_">isTerminal</span>(node.<span class="property">status</span>)) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> isReady = <span class="variable language_">this</span>.<span class="title function_">evaluateAst</span>(node.<span class="property">preConditionJson</span>, &#123;</span><br><span class="line">        <span class="attr">statusMap</span>: <span class="variable language_">this</span>.<span class="property">statusMap</span>,</span><br><span class="line">        <span class="attr">formData</span>: extraContext?.<span class="property">formData</span> || &#123;&#125;,</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> <span class="attr">newState</span>: <span class="title class_">EngineStatus</span> | <span class="literal">null</span> = <span class="literal">null</span>;</span><br><span class="line">      <span class="keyword">if</span> (isReady &amp;&amp; (node.<span class="property">status</span> === <span class="string">&#x27;PENDING&#x27;</span> || node.<span class="property">status</span> === <span class="string">&#x27;BLOCKED&#x27;</span>)) &#123;</span><br><span class="line">        newState = <span class="string">&#x27;PROCESSING&#x27;</span>;          <span class="comment">// 解锁，进入审批中</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!isReady &amp;&amp; (node.<span class="property">status</span> === <span class="string">&#x27;PENDING&#x27;</span> || node.<span class="property">status</span> === <span class="string">&#x27;PROCESSING&#x27;</span>)) &#123;</span><br><span class="line">        newState = <span class="string">&#x27;BLOCKED&#x27;</span>;             <span class="comment">// 条件不满足，阻塞</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (newState &amp;&amp; newState !== node.<span class="property">status</span>) &#123;</span><br><span class="line">        node.<span class="property">status</span> = newState;</span><br><span class="line">        changes.<span class="title function_">push</span>(&#123; <span class="attr">nodeId</span>: node.<span class="property">id</span>, oldStatus, <span class="attr">newStatus</span>: newState, node &#125;);</span><br><span class="line">        hasChanges = <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!hasChanges) <span class="keyword">break</span>;</span><br><span class="line">    iteration++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 4. 返回变更列表 + 流程是否终结</span></span><br><span class="line">  <span class="keyword">const</span> isFinished = <span class="variable language_">this</span>.<span class="property">nodes</span>.<span class="title function_">every</span>(<span class="function"><span class="params">n</span> =&gt;</span> <span class="variable language_">this</span>.<span class="title function_">isTerminal</span>(n.<span class="property">status</span>));</span><br><span class="line">  <span class="keyword">return</span> &#123; changes, isFinished &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键设计</strong>：</p>
+<ul>
+<li><code>buildDependencyMap()</code> 遍历所有节点的 AST，提取 <code>NODE_STATUS</code> 类型的引用，构建 <code>被依赖节点 → 依赖它的节点列表</code> 的映射。</li>
+<li>按层级排序保证低层级节点先处理（如 node_02 先于 node_03）。</li>
+<li>外层 <code>while</code> 循环用于处理级联唤醒（A 解锁 B，B 又解锁 C），每次迭代都重新评估所有下游节点，直到没有新变化为止。</li>
+<li><code>isFinished</code> 基于引擎持有的<strong>所有节点</strong>计算，包括状态没变化的节点，避免了仅依赖 <code>changes</code> 列表在分支依赖场景下的误判。</li>
+</ul>
+<h3 id="4-3-AST-评估逻辑"><a href="#4-3-AST-评估逻辑" class="headerlink" title="4.3 AST 评估逻辑"></a>4.3 AST 评估逻辑</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">evaluateAst</span>(<span class="attr">ast</span>: <span class="title class_">AstNode</span> | <span class="literal">null</span>, <span class="attr">context</span>: &#123; statusMap, formData &#125;): <span class="built_in">boolean</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!ast) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">switch</span> (ast.<span class="property">type</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;LEAF&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">evaluateLeaf</span>(ast, context);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;AND&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> ast.<span class="property">children</span>.<span class="title function_">every</span>(<span class="function"><span class="params">child</span> =&gt;</span> <span class="variable language_">this</span>.<span class="title function_">evaluateAst</span>(child, context));</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;OR&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> ast.<span class="property">children</span>.<span class="title function_">some</span>(<span class="function"><span class="params">child</span> =&gt;</span> <span class="variable language_">this</span>.<span class="title function_">evaluateAst</span>(child, context));</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;NOT&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> !<span class="variable language_">this</span>.<span class="title function_">evaluateAst</span>(ast.<span class="property">child</span>, context);</span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="title function_">evaluateLeaf</span>(<span class="attr">leaf</span>: <span class="title class_">AstNode</span>, context): <span class="built_in">boolean</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (leaf.<span class="property">key</span> === <span class="string">&#x27;NODE_STATUS&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> actual = context.<span class="property">statusMap</span>.<span class="title function_">get</span>(leaf.<span class="property">nodeId</span>);</span><br><span class="line">    <span class="keyword">const</span> expected = leaf.<span class="property">expected</span>;</span><br><span class="line">    <span class="keyword">const</span> operator = leaf.<span class="property">operator</span> || <span class="string">&#x27;==&#x27;</span>;</span><br><span class="line">    <span class="keyword">switch</span> (operator) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;==&#x27;</span>: <span class="keyword">return</span> actual === expected;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;!=&#x27;</span>: <span class="keyword">return</span> actual !== expected;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;in&#x27;</span>: <span class="keyword">return</span> (expected <span class="keyword">as</span> <span class="built_in">string</span>[]).<span class="title function_">includes</span>(actual);</span><br><span class="line">      <span class="attr">default</span>: <span class="keyword">return</span> actual === expected;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (leaf.<span class="property">key</span> === <span class="string">&#x27;FORM_FIELD&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> actual = context.<span class="property">formData</span>[leaf.<span class="property">field</span>];</span><br><span class="line">    <span class="keyword">const</span> expected = leaf.<span class="property">value</span>;</span><br><span class="line">    <span class="keyword">switch</span> (leaf.<span class="property">operator</span>) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&gt;&#x27;</span>: <span class="keyword">return</span> actual &gt; expected;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&lt;&#x27;</span>: <span class="keyword">return</span> actual &lt; expected;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&gt;=&#x27;</span>: <span class="keyword">return</span> actual &gt;= expected;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&lt;=&#x27;</span>: <span class="keyword">return</span> actual &lt;= expected;</span><br><span class="line">      <span class="attr">default</span>: <span class="keyword">return</span> actual == expected;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="五、业务接口集成"><a href="#五、业务接口集成" class="headerlink" title="五、业务接口集成"></a>五、业务接口集成</h2><h3 id="5-1-审批操作接口"><a href="#5-1-审批操作接口" class="headerlink" title="5.1 审批操作接口"></a>5.1 审批操作接口</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">handler</span>(<span class="params"><span class="attr">req</span>: <span class="title class_">NextApiRequest</span>, <span class="attr">res</span>: <span class="title class_">NextApiResponse</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; id, remark, <span class="attr">status</span>: targetStatus &#125; = req.<span class="property">body</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1. 查询当前节点记录</span></span><br><span class="line">  <span class="keyword">const</span> currentItem = <span class="keyword">await</span> <span class="title function_">querySubRecordById</span>(id);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 查询该申请下所有节点（作为引擎的输入）</span></span><br><span class="line">  <span class="keyword">const</span> allNodes = <span class="keyword">await</span> <span class="title function_">queryFullRelatedApplyList</span>(currentItem.<span class="property">mainId</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (targetStatus === <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="comment">// 通过</span></span><br><span class="line">    <span class="comment">// 3. 创建引擎实例</span></span><br><span class="line">    <span class="keyword">const</span> engine = <span class="keyword">new</span> <span class="title class_">ApprovalStateEngine</span>(allNodes);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 执行级联状态传播</span></span><br><span class="line">    <span class="keyword">const</span> result = engine.<span class="title function_">propagateStatusChange</span>(currentItem.<span class="property">node</span>, <span class="string">&#x27;PASSED&#x27;</span>, &#123;</span><br><span class="line">      <span class="attr">formData</span>: <span class="title class_">JSON</span>.<span class="title function_">parse</span>(currentItem.<span class="property">param</span> || <span class="string">&#x27;&#123;&#125;&#x27;</span>),</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 批量更新受影响的节点</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> change <span class="keyword">of</span> result.<span class="property">changes</span>) &#123;</span><br><span class="line">      <span class="keyword">await</span> <span class="title function_">updateApplyRecord</span>(change.<span class="property">node</span>.<span class="property">rawId</span>, &#123;</span><br><span class="line">        <span class="attr">status</span>: <span class="string">`<span class="subst">$&#123;REVERSE_STATUS[change.newStatus]&#125;</span>`</span>,</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 6. ⭐ 判断流程是否结束</span></span><br><span class="line">    <span class="keyword">if</span> (result.<span class="property">isFinished</span>) &#123;</span><br><span class="line">      <span class="keyword">await</span> <span class="title function_">updateMainApplyStatus</span>(currentItem.<span class="property">mainId</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 执行业务变更（从主表 param 读取参数）</span></span><br><span class="line">      <span class="keyword">if</span> (currentItem.<span class="property">type</span> === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> json = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(currentItem.<span class="property">param</span> || <span class="string">&#x27;&#123;&#125;&#x27;</span>);</span><br><span class="line">        <span class="comment">// 执行具体业务逻辑...</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 驳回或退回：直接终止流程</span></span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">updateMainApplyStatus</span>(currentItem.<span class="property">mainId</span>, targetStatus);</span><br><span class="line">    <span class="comment">// 后续节点标记为无效</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-状态映射"><a href="#5-2-状态映射" class="headerlink" title="5.2 状态映射"></a>5.2 状态映射</h3><p>数据库中存储的是数字状态（1~5），引擎内部使用字符串状态，需要在边界做转换：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数字 → 引擎状态</span></span><br><span class="line"><span class="keyword">const</span> <span class="attr">STATUS_MAP</span>: <span class="title class_">Record</span>&lt;<span class="built_in">number</span>, <span class="title class_">EngineStatus</span>&gt; = &#123;</span><br><span class="line">  <span class="number">1</span>: <span class="string">&#x27;PENDING&#x27;</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="string">&#x27;PROCESSING&#x27;</span>,</span><br><span class="line">  <span class="number">3</span>: <span class="string">&#x27;PASSED&#x27;</span>,</span><br><span class="line">  <span class="number">4</span>: <span class="string">&#x27;RETURNED&#x27;</span>,</span><br><span class="line">  <span class="number">5</span>: <span class="string">&#x27;REJECTED&#x27;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引擎状态 → 数字</span></span><br><span class="line"><span class="keyword">const</span> <span class="attr">REVERSE_STATUS</span>: <span class="title class_">Record</span>&lt;<span class="title class_">EngineStatus</span>, <span class="built_in">number</span>&gt; = &#123;</span><br><span class="line">  <span class="string">&#x27;PENDING&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="string">&#x27;PROCESSING&#x27;</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="string">&#x27;PASSED&#x27;</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="string">&#x27;RETURNED&#x27;</span>: <span class="number">4</span>,</span><br><span class="line">  <span class="string">&#x27;REJECTED&#x27;</span>: <span class="number">5</span>,</span><br><span class="line">  <span class="string">&#x27;BLOCKED&#x27;</span>: <span class="number">1</span>,  <span class="comment">// 阻塞对外显示为&quot;待审批&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-节点适配：数据库主键-vs-业务节点标识"><a href="#5-3-节点适配：数据库主键-vs-业务节点标识" class="headerlink" title="5.3 节点适配：数据库主键 vs 业务节点标识"></a>5.3 节点适配：数据库主键 vs 业务节点标识</h3><p>在”回退重提”场景下，两轮节点可能拥有相同的 <code>jiedian</code>（如 <code>node_01</code>），需要用数据库主键作为引擎的唯一标识：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">adaptToEngineFormat</span>(<span class="params"><span class="attr">rawNodes</span>: <span class="title class_">RawNode</span>[]</span>): <span class="title class_">EngineNode</span>[] &#123;</span><br><span class="line">  <span class="keyword">return</span> rawNodes.<span class="title function_">map</span>(<span class="function"><span class="params">node</span> =&gt;</span> (&#123;</span><br><span class="line">    <span class="attr">id</span>: node.<span class="property">id</span>,              <span class="comment">// ⭐ 使用数据库主键作为引擎 ID</span></span><br><span class="line">    <span class="attr">jiedian</span>: node.<span class="property">jiedian</span>,    <span class="comment">// 业务标识仅用于展示</span></span><br><span class="line">    <span class="attr">status</span>: <span class="variable constant_">STATUS_MAP</span>[node.<span class="property">zhuangtai</span>],</span><br><span class="line">    <span class="attr">preConditionJson</span>: <span class="title class_">JSON</span>.<span class="title function_">parse</span>(node.<span class="property">qianzhitiaojian</span>),</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="六、一个细节：为什么不能只靠-changes-判断流程结束？"><a href="#六、一个细节：为什么不能只靠-changes-判断流程结束？" class="headerlink" title="六、一个细节：为什么不能只靠 changes 判断流程结束？"></a>六、一个细节：为什么不能只靠 changes 判断流程结束？</h2><p>最初我尝试用 <code>changes.length === 1</code> 或 <code>changes.some(r =&gt; r.newStatus === &#39;PROCESSING&#39;)</code> 来判断流程是否结束，但都存在问题。</p>
+<p>考虑这个分支依赖场景：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">节点 2 依赖：node_01 PASSED AND node_03 PASSED</span><br></pre></td></tr></table></figure>
+
+<p>当前状态：node_01、node_02、node_03 都是 <code>PENDING</code>。</p>
+<p>用户审批通过 node_01 后：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> result = engine.<span class="title function_">propagateStatusChange</span>(<span class="string">&#x27;node_01&#x27;</span>, <span class="string">&#x27;PASSED&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// result.changes = [</span></span><br><span class="line"><span class="comment">//   &#123; nodeId: &#x27;node_01&#x27;, newStatus: &#x27;PASSED&#x27; &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; nodeId: &#x27;node_02&#x27;, newStatus: &#x27;BLOCKED&#x27; &#125;   // 因为 node_03 还没过</span></span><br><span class="line"><span class="comment">// ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// node_03 仍然是 PENDING，但它的状态没变，不会出现在 changes 中！</span></span><br></pre></td></tr></table></figure>
+
+<p>此时 <code>result.changes</code> 里没有 <code>PROCESSING</code>，但 <code>node_03</code> 还等着审批，流程远未结束。</p>
+<p><strong>因此，<code>propagateStatusChange</code> 返回 <code>isFinished</code> 字段</strong>：它遍历引擎持有的所有节点（包括状态没变的 node_03），只有全部达到终态（<code>PASSED</code> &#x2F; <code>RETURNED</code> &#x2F; <code>REJECTED</code> &#x2F; <code>SKIPPED</code>）时才返回 <code>true</code>。</p>
+<p>这就是为什么业务接口只需要检查 <code>result.isFinished</code>，而不是自己分析 <code>changes</code>。</p>
+<h2 id="七、总结"><a href="#七、总结" class="headerlink" title="七、总结"></a>七、总结</h2><p>按上述思路，我们实现了一个具有<strong>灵活前置条件配置</strong>的审批流引擎，核心收获有几点：</p>
+<ol>
+<li><p><strong>模板与实例分离</strong>：模板负责定义流程蓝图，实例负责记录运行时状态，变更模板不影响正在运行的审批。</p>
+</li>
+<li><p><strong>AST 表达式系统</strong>：将前置条件从代码中抽离出来，以结构化 JSON 存储。引擎只负责解析和执行，业务人员可通过配置界面修改规则，无需重新发版。</p>
+</li>
+<li><p><strong>级联状态传播</strong>：节点状态变化后，引擎自动计算所有下游节点的新状态，并将变更列表一次性返回给调用方。</p>
+</li>
+<li><p><strong>engine 返回 isFinished</strong>：引擎基于所有节点的终态计算 <code>isFinished</code>，避免了调用方自行分析 <code>changes</code> 时在分支依赖场景下的误判。</p>
+</li>
+<li><p><strong>主表聚合状态</strong>：配合主表存储审批状态，业务层可 O(1) 查询申请是否结束，无需每次都跑引擎计算。</p>
+</li>
+</ol>
+<p><strong>欢迎交流</strong>：如果你对本文有意见或者建议，欢迎留言讨论！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2020/05/29/less%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/05/29/less%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/" class="post-title-link" itemprop="url">Less知识复习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-05-29 10:44:39" itemprop="dateCreated datePublished" datetime="2020-05-29T10:44:39+08:00">2020-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Sass和Less都属于Css预处理器，但是说来惭愧，使用了这么久用的最多的特性只有他们的嵌套，变量之类的都比较少用。</p>
+<p>正好最近我在开发公司内部使用的组件，有些组件会根据传入的参数不同，显示不同的颜色。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">&lt;<span class="title class_">Notice</span> <span class="keyword">type</span>=<span class="string">&#x27;success&#x27;</span>&gt; <span class="comment">// 展示为绿色</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Notice</span> <span class="attr">type</span>=<span class="string">&#x27;warn&#x27;</span>&gt;</span> // 展示为橙色</span></span><br><span class="line"><span class="language-xml">...</span></span><br></pre></td></tr></table></figure>
+
+<p>那么组件内部实现应该类似于这样</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Notice.js</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Notice</span> = (<span class="params">&#123;<span class="keyword">type</span>&#125;</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">classname</span>=`<span class="attr">notice-</span>$&#123;<span class="attr">type</span>&#125;`&gt;</span></span></span><br><span class="line"><span class="language-xml">  ...</span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>接着开始写less文件,希望最终的生成结果应该是这样：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.notice-success</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.notice-warn</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后去温习一遍less变量和遍历的使用：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 官方文档</span></span><br><span class="line"><span class="selector-class">.generate-columns</span>(<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.generate-columns</span>(<span class="variable">@n</span>, <span class="variable">@i</span>: <span class="number">1</span>) <span class="keyword">when</span> (<span class="variable">@i</span> =&lt; <span class="variable">@n</span>) &#123;</span><br><span class="line">  <span class="selector-class">.column-</span><span class="variable">@&#123;i&#125;</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: (<span class="variable">@i</span> * <span class="number">100%</span> / <span class="variable">@n</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.generate-columns</span>(<span class="variable">@n</span>, (<span class="variable">@i</span> + <span class="number">1</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成的css</span></span><br><span class="line"><span class="selector-class">.column-1</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">25%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.column-2</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.column-3</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">75%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.column-4</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后着手开发：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 定义变量：</span></span><br><span class="line"><span class="variable">@types:</span> warn, info, success, error;</span><br><span class="line"><span class="variable">@backgroudColors:</span> <span class="number">#fff5e6</span>, <span class="number">#f0f5ff</span>, <span class="number">#effae4</span>, <span class="number">#ffeae6</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历：</span></span><br><span class="line"><span class="selector-class">.loop</span>(<span class="variable">@n</span>, <span class="variable">@i</span>: <span class="number">1</span>) <span class="keyword">when</span> (<span class="variable">@i</span> &lt; <span class="variable">@n</span>) &#123;</span><br><span class="line">  <span class="selector-class">.NoticeBar-</span>@&#123;<span class="selector-tag">extract</span>(<span class="variable">@types</span>, <span class="variable">@i</span>)&#125; &#123; <span class="comment">// warn：less编译错误</span></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">extract</span>(<span class="variable">@backgroudColors</span>, <span class="variable">@i</span>);</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">extract</span>(<span class="variable">@borderColors</span>, <span class="variable">@i</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.loop</span>(<span class="variable">@n</span>, (<span class="variable">@i</span> + <span class="number">1</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.loop</span>(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>我反复排查了less的语法，发现文档上类名中使用变量就是这么写的（less版本：3.10），但是编译报错，我在网上查了很久没有查出原因，后来尝试重新定义了一个变量解决，很简单的解决办法，但是也花了很久排查，算踩了一个小坑，记录一下，修改后的代码</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.loop</span>(<span class="variable">@n</span>, <span class="variable">@i</span>: <span class="number">1</span>) <span class="keyword">when</span> (<span class="variable">@i</span> &lt; <span class="variable">@n</span>) &#123;</span><br><span class="line">    <span class="variable">@name:</span> <span class="built_in">extract</span>(<span class="variable">@types</span>, <span class="variable">@i</span>);</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.NoticeBar-</span><span class="variable">@&#123;name&#125;</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">extract</span>(<span class="variable">@backgroudColors</span>, <span class="variable">@i</span>);</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">extract</span>(<span class="variable">@borderColors</span>, <span class="variable">@i</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.loop</span>(<span class="variable">@n</span>, (<span class="variable">@i</span> + <span class="number">1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2020/04/30/%E8%81%8A%E8%81%8Areact%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84hooks%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/30/%E8%81%8A%E8%81%8Areact%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84hooks%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">聊聊react中常用的hooks方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-30 15:23:00" itemprop="dateCreated datePublished" datetime="2020-04-30T15:23:00+08:00">2020-04-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>使用react 16也有一年多了，总结一下其中一些常用的hooks方法。<br>hooks使用在函数组件中，让函数组件也有了状态</p>
+<h2 id="useState"><a href="#useState" class="headerlink" title="useState"></a>useState</h2><blockquote>
+<p>useState用法——声明、读取、使用（修改）</p>
+</blockquote>
+<pre><code>const [ count , setCount ] = useState(0);
+//ES6的数组解构
+//接受状态初始值，返回数组（0：是数组状态值，1是改变函数的方法） 
+let _useState = userState(0);
+let count = _useState[0]
+let setCount = _useState[1]
+</code></pre>
+<blockquote>
+<p>多状态声明注意事项</p>
+<blockquote>
+<p>useState 只是赋值，并没有绑定key值，如何让React保证可以找到对应的渲染的状态呢？</p>
+<p>答： 根据useState出现的顺序进行确定，不能出现在条件判断语句中，因为它必须要有完全一致的渲染顺序。</p>
+</blockquote>
+</blockquote>
+<h2 id="useEffect"><a href="#useEffect" class="headerlink" title="useEffect"></a>useEffect</h2><blockquote>
+<p>生命周期函数的作用</p>
+<blockquote>
+<p>答：和函数业务主逻辑关联不大，实现在特定时间或事件中执行的动作，比如Ajax请求，登录或取消登录的时间监听</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><code>useEffect</code>两个注意点</p>
+<blockquote>
+<ol>
+<li>React首次渲染和之后的每次渲染都会调用一遍useEffect函数，而之前用的命周期函数分别表示首次渲染(componentDidMonut)和更新导致的重新渲染(componentDidUpdate)都是区分开来的。</li>
+<li>useEffect中定义的函数的执行不会阻碍浏览器更新视图异步执行，而componentDidMonut和componentDidUpdate中的代码都是同步执行的。有好处也有坏处，比如根据页面的大小绘制当前弹出窗口大小，如果时异步的就不好操作了。</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="useContext"><a href="#useContext" class="headerlink" title="useContext"></a>useContext</h2><p>useContext可以帮助实现跨越组件层级直接传递变量，实现数据的共享。<br>useContext和redux的作用不同，一个解决组件值传递，一个是应用中统一管理状态问题。<br>useContext + useReducer 可以实现Redux作用<br>Context的作用就是对包含在其中的组件实现全局数据共享的作用    </p>
+<h2 id="useReducer"><a href="#useReducer" class="headerlink" title="useReducer"></a>useReducer</h2><p>useReducer可以让代码更具有可读性和可维护性<br>Reducer其实就是一个函数，这个函数接受两个参数，一个是状态，另一个用来控制业务逻辑的判断参数，控制状态的作用</p>
+<h2 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h2><p>useMemo主要用来解决React Hooks产生的无用渲染的性能问题。在使用function的形式来声明组件，失去了shouldComponentUpdate这个生命周期，决定组件是否更新。已不再区分mount和update两个状态。</p>
+<h2 id="useCallback"><a href="#useCallback" class="headerlink" title="useCallback"></a>useCallback</h2><p>useCallback是为了缓存方法 useMemo是为了缓存变量,避免组件重复执行时，申明多次函数&#x2F;变量，减小开销。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2020/03/28/%E8%81%8A%E8%81%8AAntd-Form%E8%A1%A8%E5%8D%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/28/%E8%81%8A%E8%81%8AAntd-Form%E8%A1%A8%E5%8D%95/" class="post-title-link" itemprop="url">聊聊Antd Form表单</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-28 13:10:37" itemprop="dateCreated datePublished" datetime="2020-03-28T13:10:37+08:00">2020-03-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Antd-Form"><a href="#Antd-Form" class="headerlink" title="Antd Form"></a>Antd Form</h1><p>ant design的表单相信大家都已经很熟悉了，今天聊聊其中几个api都具体实现。</p>
+<hr>
+<p>先来看一个demo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">class NormalLoginForm extends React.Component &#123;</span><br><span class="line">  handleSubmit = e =&gt; &#123;this.props.form.validateFields((err, values) =&gt; &#123;&#125;);&#125;;</span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; getFieldDecorator &#125; = this.props.form;</span><br><span class="line">    return (</span><br><span class="line">      &lt;Form onSubmit=&#123;this.handleSubmit&#125; className=&quot;login-form&quot;&gt;</span><br><span class="line">        &lt;Form.Item&gt;</span><br><span class="line">          &#123;getFieldDecorator(&#x27;username&#x27;, &#123;</span><br><span class="line">            rules: [&#123; required: true, message: &#x27;Please input your username!&#x27; &#125;],</span><br><span class="line">          &#125;)(</span><br><span class="line">            &lt;Input</span><br><span class="line">              prefix=&#123;&lt;Icon type=&quot;user&quot; style=&#123;&#123; color: &#x27;rgba(0,0,0,.25)&#x27; &#125;&#125; /&gt;&#125;</span><br><span class="line">              placeholder=&quot;Username&quot;</span><br><span class="line">            /&gt;,</span><br><span class="line">          )&#125;</span><br><span class="line">        &lt;/Form.Item&gt;</span><br><span class="line">        &lt;Form.Item&gt;</span><br><span class="line">          &#123;getFieldDecorator(&#x27;password&#x27;, &#123;</span><br><span class="line">            rules: [&#123; required: true, message: &#x27;Please input your Password!&#x27; &#125;],</span><br><span class="line">          &#125;)(</span><br><span class="line">            &lt;Input</span><br><span class="line">              prefix=&#123;&lt;Icon type=&quot;lock&quot; style=&#123;&#123; color: &#x27;rgba(0,0,0,.25)&#x27; &#125;&#125; /&gt;&#125;</span><br><span class="line">              type=&quot;password&quot;</span><br><span class="line">            /&gt;,</span><br><span class="line">          )&#125;</span><br><span class="line">        &lt;/Form.Item&gt;</span><br><span class="line">        &lt;Form.Item&gt;</span><br><span class="line">          &lt;Button type=&quot;primary&quot; htmlType=&quot;submit&quot; className=&quot;login-form-button&quot;&gt;</span><br><span class="line">            Log in</span><br><span class="line">          &lt;/Button&gt;</span><br><span class="line">        &lt;/Form.Item&gt;</span><br><span class="line">      &lt;/Form&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">const WrappedNormalLoginForm = Form.create(&#123; name: &#x27;normal_login&#x27; &#125;)(NormalLoginForm);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;WrappedNormalLoginForm /&gt;, mountNode);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/formdemo.jpg" alt="Demo"></p>
+<p>其中主要的几个api是 Form.creat， getFieldDecorator, form.validateFields。</p>
+<p>先看最外层的 Form.creat,这个方法创造了一个高阶组件，给传入的组件props上传入了一些方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import createDOMForm from &#x27;rc-form/lib/createDOMForm&#x27;;</span><br><span class="line"></span><br><span class="line">export default class Form extends React.Component&lt;FormProps, any&gt; &#123;</span><br><span class="line">  …  </span><br><span class="line">  static create = function create(options = &#123;&#125;) &#123; </span><br><span class="line">    // create方法主要调用了createDOMForm函数 </span><br><span class="line">    return createDOMForm(&#123;</span><br><span class="line">      fieldNameProp: &#x27;id&#x27;,</span><br><span class="line">      …options,</span><br><span class="line">      fieldMetaProp: FIELD_META_PROP,</span><br><span class="line">      fieldDataProp: FIELD_DATA_PROP,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;··</span><br><span class="line">  renderForm = (&#123; getPrefixCls &#125;: ConfigConsumerProps) =&gt; &#123; // 给formItem增加类名，用于控制样式 </span><br><span class="line">    …</span><br><span class="line">    const formClassName = classNames(</span><br><span class="line">      prefixCls,</span><br><span class="line">      &#123;</span><br><span class="line">        [`$&#123;prefixCls&#125;-horizontal`]: layout === &#x27;horizontal&#x27;,</span><br><span class="line">        [`$&#123;prefixCls&#125;-vertical`]: layout === &#x27;vertical&#x27;,</span><br><span class="line">        [`$&#123;prefixCls&#125;-inline`]: layout === &#x27;inline&#x27;,</span><br><span class="line">        [`$&#123;prefixCls&#125;-hide-required-mark`]: hideRequiredMark,</span><br><span class="line">      &#125;,</span><br><span class="line">      className,</span><br><span class="line">    );</span><br><span class="line">     … </span><br><span class="line">     return &lt;form &#123;...formProps&#125; className=&#123;formClassName&#125; /&gt;;</span><br><span class="line">  &#125;;</span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; wrapperCol, labelAlign, labelCol, layout, colon &#125; = this.props;</span><br><span class="line">    return (</span><br><span class="line">      &lt;FormContext.Provider</span><br><span class="line">        value=&#123;&#123; wrapperCol, labelAlign, labelCol, vertical: layout === &#x27;vertical&#x27;, colon &#125;&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        &lt;ConfigConsumer&gt;&#123;this.renderForm&#125;&lt;/ConfigConsumer&gt;</span><br><span class="line">      &lt;/FormContext.Provider&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/formdemo.jpg" alt="Fields"><br>初始化完成的fieldsStore，其中fields和fieldsMeta为存储信息的对象，其他方法都是对这两个对象对读写操作。</p>
+<p>fields主要用来记录每个表单项的实时数据，包含以下属性：</p>
+<ul>
+<li>dirty 数据是否已经改变，但未校验</li>
+<li>errors 校验文案</li>
+<li>name 字段名称</li>
+<li>touched 数据是否更新过</li>
+<li>value 字段的值</li>
+<li>validating 校验状态</li>
+</ul>
+<p>fieldsMeta 用来记录元数据，即每个字段对应组件的配置信息：</p>
+<ul>
+<li>initialValue 初始值</li>
+<li>name 字段的名称</li>
+<li>trigger 触发数据收集的时机 默认 onChange</li>
+<li>valuePropName 子节点的值的属性，例如 checkbox 应该设为 checked</li>
+<li>rules 校验的规则</li>
+<li>originalProps 被 getFieldDecorator() 装饰的组件的原始 props</li>
+<li>validate 校验规则和触发事件</li>
+</ul>
+<p>然后看rc-form库里的createDOMForm方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// createDOMForm.js</span><br><span class="line">function createDOMForm(option) &#123;</span><br><span class="line">  return createBaseForm(&#123;</span><br><span class="line">    ...option,</span><br><span class="line">  &#125;, [mixin]);</span><br><span class="line">&#125;</span><br><span class="line">export default createDOMForm;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">// createBaseForm.js</span><br><span class="line">getInitialState() &#123;</span><br><span class="line">  const fields = mapPropsToFields &amp;&amp; mapPropsToFields(this.props);</span><br><span class="line">  this.fieldsStore = createFieldsStore(fields || &#123;&#125;); </span><br><span class="line">  // 初始化创建fieldsStore，用于存储表单信息</span><br><span class="line">  … </span><br><span class="line">  return &#123; submitting: false &#125;;</span><br><span class="line">&#125;</span><br><span class="line">render() </span><br><span class="line">  const &#123; wrappedComponentRef, ...restProps &#125; = this.props;</span><br><span class="line">  const formProps = &#123;</span><br><span class="line">    [formPropName]: this.getForm(), </span><br><span class="line">    // 来在 formPropName默认为form，getForm方法来自`createForm.js`，注入props.form的api</span><br><span class="line">    &#123;/*</span><br><span class="line">      getForm() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">          getFieldsValue: this.fieldsStore.getFieldsValue,</span><br><span class="line">          getFieldInstance: this.getFieldInstance,</span><br><span class="line">          setFieldsValue: this.setFieldsValue,</span><br><span class="line">          setFieldsInitialValue: this.fieldsStore.setFieldsInitialValue,</span><br><span class="line">          getFieldDecorator: this.getFieldDecorator,</span><br><span class="line">          getFieldsError: this.fieldsStore.getFieldsError,</span><br><span class="line">          isSubmitting: this.isSubmitting,</span><br><span class="line">          submit: this.submit,</span><br><span class="line">          validateFields: this.validateFields,</span><br><span class="line">          resetFields: this.resetFields,</span><br><span class="line">          ...</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line">    */&#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  if (withRef) &#123;</span><br><span class="line">    formProps.ref = &#x27;wrappedComponent&#x27;;</span><br><span class="line">  &#125; else if (wrappedComponentRef) &#123;</span><br><span class="line">    formProps.ref = wrappedComponentRef;</span><br><span class="line">  &#125;</span><br><span class="line">  const props = mapProps.call(this, &#123;</span><br><span class="line">    ...formProps,</span><br><span class="line">    ...restProps,</span><br><span class="line">  &#125;);</span><br><span class="line">  return &lt;WrappedComponent &#123;...props&#125; /&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="getFieldDecorator"><a href="#getFieldDecorator" class="headerlink" title="getFieldDecorator"></a>getFieldDecorator</h3><p>这个方法帮我们做了数据对双向绑定，让组件变成了受控组件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// createBaseForm.tsx</span><br><span class="line">getFieldDecorator(name, fieldOption) &#123;</span><br><span class="line">  const props = this.getFieldProps(name, fieldOption);</span><br><span class="line">  return fieldElem =&gt; &#123;</span><br><span class="line">    this.renderFields[name] = true;</span><br><span class="line"></span><br><span class="line">    const fieldMeta = this.fieldsStore.getFieldMeta(name);</span><br><span class="line">    const originalProps = fieldElem.props;</span><br><span class="line">    fieldMeta.originalProps = originalProps;</span><br><span class="line">    fieldMeta.ref = fieldElem.ref;</span><br><span class="line">    return React.cloneElement(fieldElem, &#123;</span><br><span class="line">      ...props,</span><br><span class="line">      …this.fieldsStore.getFieldValuePropValue(fieldMeta), </span><br><span class="line">      // &#123;value: ‘xxx’&#125;，将value注入到props上，双向绑定</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>前面提到，form内部状态都是维护在fields和fieldsMeta里的，那么getFieldDecorator肯定对fieldsMeta有做了处理，这一步包含在了 getFieldMeta 中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">getFieldProps(name, usersFieldOption = &#123;&#125;) &#123;</span><br><span class="line">    delete this.clearedFieldMetaCache[name];</span><br><span class="line">    const fieldOption = &#123;</span><br><span class="line">      name,</span><br><span class="line">      trigger: DEFAULT_TRIGGER,</span><br><span class="line">      valuePropName: &#x27;value&#x27;,</span><br><span class="line">      validate: [],</span><br><span class="line">      ...usersFieldOption,</span><br><span class="line">    &#125;;</span><br><span class="line">    …</span><br><span class="line">    const fieldMeta = this.fieldsStore.getFieldMeta(name);</span><br><span class="line">    const inputProps = &#123;</span><br><span class="line">      ...this.fieldsStore.getFieldValuePropValue(fieldOption),</span><br><span class="line">      ref: this.getCacheBind(name, `$&#123;name&#125;__ref`, this.saveRef),</span><br><span class="line">    &#125;;</span><br><span class="line">    …</span><br><span class="line">    const validateRules = normalizeValidateRules(</span><br><span class="line">      validate,</span><br><span class="line">      rules,</span><br><span class="line">      validateTrigger,</span><br><span class="line">    );</span><br><span class="line">    const validateTriggers = getValidateTriggers(validateRules);</span><br><span class="line">    validateTriggers.forEach(action =&gt; &#123;</span><br><span class="line">      if (inputProps[action]) return;</span><br><span class="line">      inputProps[action] = this.getCacheBind(</span><br><span class="line">        name,</span><br><span class="line">        action,</span><br><span class="line">        this.onCollectValidate, </span><br><span class="line">        // 当组件值变化调用 onCollectValidate，写入fields   </span><br><span class="line">      );</span><br><span class="line">    &#125;);</span><br><span class="line">    const meta = &#123;</span><br><span class="line">      ...fieldMeta,</span><br><span class="line">      ...fieldOption,</span><br><span class="line">      validate: validateRules,</span><br><span class="line">    &#125;;</span><br><span class="line">    this.fieldsStore.setFieldMeta(name, meta);</span><br><span class="line">    …</span><br><span class="line">    // This field is rendered, record it</span><br><span class="line">    this.renderFields[name] = true;</span><br><span class="line">    return inputProps;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">getFieldProps(name, usersFieldOption = &#123;&#125;) &#123;</span><br><span class="line">    delete this.clearedFieldMetaCache[name];</span><br><span class="line">    const fieldOption = &#123;</span><br><span class="line">      name,</span><br><span class="line">      trigger: DEFAULT_TRIGGER,</span><br><span class="line">      valuePropName: &#x27;value&#x27;,</span><br><span class="line">      validate: [],</span><br><span class="line">      ...usersFieldOption,</span><br><span class="line">    &#125;;</span><br><span class="line">    …</span><br><span class="line">    const fieldMeta = this.fieldsStore.getFieldMeta(name);</span><br><span class="line">    const inputProps = &#123;</span><br><span class="line">      ...this.fieldsStore.getFieldValuePropValue(fieldOption),</span><br><span class="line">      ref: this.getCacheBind(name, `$&#123;name&#125;__ref`, this.saveRef),</span><br><span class="line">    &#125;;</span><br><span class="line">    …</span><br><span class="line">    const validateRules = normalizeValidateRules(</span><br><span class="line">      validate,</span><br><span class="line">      rules,</span><br><span class="line">      validateTrigger,</span><br><span class="line">    );</span><br><span class="line">    const validateTriggers = getValidateTriggers(validateRules);</span><br><span class="line">    validateTriggers.forEach(action =&gt; &#123;</span><br><span class="line">      if (inputProps[action]) return;</span><br><span class="line">      inputProps[action] = this.getCacheBind(</span><br><span class="line">        name,</span><br><span class="line">        action,</span><br><span class="line">        this.onCollectValidate, </span><br><span class="line">        // 当组件值变化调用 onCollectValidate，写入fields   </span><br><span class="line">      );</span><br><span class="line">    &#125;);</span><br><span class="line">    const meta = &#123;</span><br><span class="line">      ...fieldMeta,</span><br><span class="line">      ...fieldOption,</span><br><span class="line">      validate: validateRules,</span><br><span class="line">    &#125;;</span><br><span class="line">    this.fieldsStore.setFieldMeta(name, meta);</span><br><span class="line">    // 这一步把信息写入了fieldMeta对象</span><br><span class="line">    …</span><br><span class="line">    // This field is rendered, record it</span><br><span class="line">    this.renderFields[name] = true;</span><br><span class="line">    return inputProps;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="validateFields"><a href="#validateFields" class="headerlink" title="validateFields"></a>validateFields</h3><p>validateFields 方法获取表单中对值并且根据校验规则对value进行校验。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">validateFields(ns, opt, cb) &#123;</span><br><span class="line">  const pending = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    const &#123; names, options &#125; = getParams(ns, opt, cb);</span><br><span class="line">    let &#123; callback &#125; = getParams(ns, opt, cb);</span><br><span class="line">    if (!callback || typeof callback === &#x27;function&#x27;) &#123;</span><br><span class="line">      const oldCb = callback;</span><br><span class="line">      callback = (errors, values) =&gt; &#123;</span><br><span class="line">        if (oldCb) &#123;</span><br><span class="line">          oldCb(errors, values);</span><br><span class="line">        &#125;</span><br><span class="line">        if (errors) &#123;</span><br><span class="line">          reject(&#123; errors, values &#125;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          resolve(values);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125; // 兼容 v4从回调改为promise </span><br><span class="line">    const fieldNames = names</span><br><span class="line">      ? this.fieldsStore.getValidFieldsFullName(names)</span><br><span class="line">      : this.fieldsStore.getValidFieldsName();</span><br><span class="line">    const fields = fieldNames</span><br><span class="line">      .filter(name =&gt; &#123;</span><br><span class="line">        const fieldMeta = this.fieldsStore.getFieldMeta(name);</span><br><span class="line">        return hasRules(fieldMeta.validate);</span><br><span class="line">      &#125;)</span><br><span class="line">      .map(name =&gt; &#123;</span><br><span class="line">        const field = this.fieldsStore.getField(name);</span><br><span class="line">        field.value = this.fieldsStore.getFieldValue(name);</span><br><span class="line">        return field;</span><br><span class="line">      &#125;);</span><br><span class="line">    if (!fields.length) &#123;</span><br><span class="line">      callback(null, this.fieldsStore.getFieldsValue(fieldNames));</span><br><span class="line">      return;</span><br><span class="line">    &#125;</span><br><span class="line">    return e;</span><br><span class="line">  &#125;);</span><br><span class="line">  // 从fieldsMeta中取出规则进行校验，使用 async-validator </span><br><span class="line">  this.validateFieldsInternal(</span><br><span class="line">      fields,</span><br><span class="line">      &#123;</span><br><span class="line">        fieldNames,</span><br><span class="line">        options,</span><br><span class="line">      &#125;,</span><br><span class="line">      callback,</span><br><span class="line">    );</span><br><span class="line">  &#125;);</span><br><span class="line">  pending.catch(e =&gt; &#123;</span><br><span class="line">    return e;</span><br><span class="line">  &#125;);</span><br><span class="line">  return pending;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2020/02/22/redux%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/02/22/redux%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">redux源码分析</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-22 16:24:43" itemprop="dateCreated datePublished" datetime="2020-02-22T16:24:43+08:00">2020-02-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="1-redux"><a href="#1-redux" class="headerlink" title="1. redux"></a>1. redux</h2><p>redux是开发react时最常用的状态管理库之一，一般结合react-redux使用，最近翻阅了redux的源码，发现其中有很多优秀的实现方式。</p>
+<p>先从redux最常用的几个方法入手查看源码</p>
+<ul>
+<li>createStore</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br></pre></td><td class="code"><pre><span class="line">export default function createStore(reducer, preloadedState, enhancer) &#123;</span><br><span class="line">  if (</span><br><span class="line">    (typeof preloadedState === &#x27;function&#x27; &amp;&amp; typeof enhancer === &#x27;function&#x27;) ||</span><br><span class="line">    (typeof enhancer === &#x27;function&#x27; &amp;&amp; typeof arguments[3] === &#x27;function&#x27;)</span><br><span class="line">  ) &#123;</span><br><span class="line">    throw new Error(</span><br><span class="line">      &#x27;It looks like you are passing several store enhancers to &#x27; +</span><br><span class="line">        &#x27;createStore(). This is not supported. Instead, compose them &#x27; +</span><br><span class="line">        &#x27;together to a single function.&#x27;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 如果第二个参数是函数类型，且没有第三个参数，就把第二个参数作为中间件 --&gt;</span><br><span class="line">  if (typeof preloadedState === &#x27;function&#x27; &amp;&amp; typeof enhancer === &#x27;undefined&#x27;) &#123;</span><br><span class="line">    enhancer = preloadedState</span><br><span class="line">    preloadedState = undefined</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 存在中间件则使用中间件处理处理createstore的返回值 --&gt;</span><br><span class="line">  if (typeof enhancer !== &#x27;undefined&#x27;) &#123;</span><br><span class="line">    if (typeof enhancer !== &#x27;function&#x27;) &#123;</span><br><span class="line">      throw new Error(&#x27;Expected the enhancer to be a function.&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return enhancer(createStore)(reducer, preloadedState)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if (typeof reducer !== &#x27;function&#x27;) &#123;</span><br><span class="line">    throw new Error(&#x27;Expected the reducer to be a function.&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  let currentReducer = reducer</span><br><span class="line">  let currentState = preloadedState</span><br><span class="line">  let currentListeners = []</span><br><span class="line">  let nextListeners = currentListeners</span><br><span class="line">  let isDispatching = false</span><br><span class="line"></span><br><span class="line">  &lt;!-- 深拷贝一份监听器，防止在dispatch过程中调用导致bug --&gt;</span><br><span class="line">  function ensureCanMutateNextListeners() &#123;</span><br><span class="line">    if (nextListeners === currentListeners) &#123;</span><br><span class="line">      nextListeners = currentListeners.slice()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 常用方法，获取当前状态，没什么好多解释的 --&gt;</span><br><span class="line">  function getState() &#123;</span><br><span class="line">    if (isDispatching) &#123;</span><br><span class="line">      throw new Error(</span><br><span class="line">        &#x27;You may not call store.getState() while the reducer is executing. &#x27; +</span><br><span class="line">          &#x27;The reducer has already received the state as an argument. &#x27; +</span><br><span class="line">          &#x27;Pass it down from the top reducer instead of reading it from the store.&#x27;</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return currentState</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &lt;!-- subscribe方法，当store改变，调用传入的监听函数 --&gt;</span><br><span class="line">  function subscribe(listener) &#123;</span><br><span class="line">    if (typeof listener !== &#x27;function&#x27;) &#123;</span><br><span class="line">      throw new Error(&#x27;Expected the listener to be a function.&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (isDispatching) &#123;</span><br><span class="line">      throw new Error(</span><br><span class="line">        &#x27;You may not call store.subscribe() while the reducer is executing. &#x27; +</span><br><span class="line">          &#x27;If you would like to be notified after the store has been updated, subscribe from a &#x27; +</span><br><span class="line">          &#x27;component and invoke store.getState() in the callback to access the latest state. &#x27; +</span><br><span class="line">          &#x27;See https://redux.js.org/api-reference/store#subscribelistener for more details.&#x27;</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    let isSubscribed = true</span><br><span class="line"></span><br><span class="line">    ensureCanMutateNextListeners()</span><br><span class="line">    nextListeners.push(listener)</span><br><span class="line"></span><br><span class="line">    &lt;!-- 解除订阅 --&gt;</span><br><span class="line">    return function unsubscribe() &#123;</span><br><span class="line">      if (!isSubscribed) &#123;</span><br><span class="line">        return</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      if (isDispatching) &#123;</span><br><span class="line">        throw new Error(</span><br><span class="line">          &#x27;You may not unsubscribe from a store listener while the reducer is executing. &#x27; +</span><br><span class="line">            &#x27;See https://redux.js.org/api-reference/store#subscribelistener for more details.&#x27;</span><br><span class="line">        )</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      isSubscribed = false</span><br><span class="line">      &lt;!-- 解除本次订阅，不影响其他的订阅调用 --&gt;</span><br><span class="line">      ensureCanMutateNextListeners()</span><br><span class="line">      const index = nextListeners.indexOf(listener)</span><br><span class="line">      nextListeners.splice(index, 1)</span><br><span class="line">      currentListeners = null</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 发起action，用于改变store --&gt;</span><br><span class="line">  function dispatch(action) &#123;</span><br><span class="line">    &lt;!-- action类型校验 --&gt;</span><br><span class="line">    if (!isPlainObject(action)) &#123;</span><br><span class="line">      throw new Error(</span><br><span class="line">        &#x27;Actions must be plain objects. &#x27; +</span><br><span class="line">          &#x27;Use custom middleware for async actions.&#x27;</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (typeof action.type === &#x27;undefined&#x27;) &#123;</span><br><span class="line">      throw new Error(</span><br><span class="line">        &#x27;Actions may not have an undefined &quot;type&quot; property. &#x27; +</span><br><span class="line">          &#x27;Have you misspelled a constant?&#x27;</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (isDispatching) &#123;</span><br><span class="line">      throw new Error(&#x27;Reducers may not dispatch actions.&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    try &#123;</span><br><span class="line">      isDispatching = true</span><br><span class="line">      &lt;!-- 改变当前状态 --&gt;</span><br><span class="line">      currentState = currentReducer(currentState, action)</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">      isDispatching = false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 状态改变后，调用所有的订阅函数 --&gt;</span><br><span class="line">    const listeners = (currentListeners = nextListeners)</span><br><span class="line">    for (let i = 0; i &lt; listeners.length; i++) &#123;</span><br><span class="line">      const listener = listeners[i]</span><br><span class="line">      listener()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return action</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 项目中比较少用到，替换原有reducer --&gt;</span><br><span class="line">  function replaceReducer(nextReducer) &#123;</span><br><span class="line">    if (typeof nextReducer !== &#x27;function&#x27;) &#123;</span><br><span class="line">      throw new Error(&#x27;Expected the nextReducer to be a function.&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    currentReducer = nextReducer</span><br><span class="line">    dispatch(&#123; type: ActionTypes.REPLACE &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * Interoperability point for observable/reactive libraries.</span><br><span class="line">   * @returns &#123;observable&#125; A minimal observable of state changes.</span><br><span class="line">   * For more information, see the observable proposal:</span><br><span class="line">   * https://github.com/tc39/proposal-observable</span><br><span class="line">   */</span><br><span class="line">  &lt;!-- 这个函数没有被调用，详情可以看作者的github地址 --&gt;</span><br><span class="line">  function observable() &#123;</span><br><span class="line">    const outerSubscribe = subscribe</span><br><span class="line">    return &#123;</span><br><span class="line">      /**</span><br><span class="line">       * The minimal observable subscription method.</span><br><span class="line">       * @param &#123;Object&#125; observer Any object that can be used as an observer.</span><br><span class="line">       * The observer object should have a `next` method.</span><br><span class="line">       * @returns &#123;subscription&#125; An object with an `unsubscribe` method that can</span><br><span class="line">       * be used to unsubscribe the observable from the store, and prevent further</span><br><span class="line">       * emission of values from the observable.</span><br><span class="line">       */</span><br><span class="line">      subscribe(observer) &#123;</span><br><span class="line">        if (typeof observer !== &#x27;object&#x27; || observer === null) &#123;</span><br><span class="line">          throw new TypeError(&#x27;Expected the observer to be an object.&#x27;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        function observeState() &#123;</span><br><span class="line">          if (observer.next) &#123;</span><br><span class="line">            observer.next(getState())</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        observeState()</span><br><span class="line">        const unsubscribe = outerSubscribe(observeState)</span><br><span class="line">        return &#123; unsubscribe &#125;</span><br><span class="line">      &#125;,</span><br><span class="line"></span><br><span class="line">      [$$observable]() &#123;</span><br><span class="line">        return this</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // When a store is created, an &quot;INIT&quot; action is dispatched so that every</span><br><span class="line">  // reducer returns their initial state. This effectively populates</span><br><span class="line">  // the initial state tree.</span><br><span class="line">  dispatch(&#123; type: ActionTypes.INIT &#125;)</span><br><span class="line"></span><br><span class="line">  return &#123;</span><br><span class="line">    dispatch,</span><br><span class="line">    subscribe,</span><br><span class="line">    getState,</span><br><span class="line">    replaceReducer,</span><br><span class="line">    [$$observable]: observable</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>combineReducers</li>
+</ul>
+<p>这个方法主要是用来合并多个reducer。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">export default function combineReducers(reducers) &#123;</span><br><span class="line">  &lt;!-- 浅拷贝一层，并确保对象都有值 --&gt;</span><br><span class="line">  const reducerKeys = Object.keys(reducers)</span><br><span class="line">  const finalReducers = &#123;&#125;</span><br><span class="line">  for (let i = 0; i &lt; reducerKeys.length; i++) &#123;</span><br><span class="line">    const key = reducerKeys[i]</span><br><span class="line"></span><br><span class="line">    if (process.env.NODE_ENV !== &#x27;production&#x27;) &#123;</span><br><span class="line">      if (typeof reducers[key] === &#x27;undefined&#x27;) &#123;</span><br><span class="line">        warning(`No reducer provided for key &quot;$&#123;key&#125;&quot;`)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (typeof reducers[key] === &#x27;function&#x27;) &#123;</span><br><span class="line">      finalReducers[key] = reducers[key]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  const finalReducerKeys = Object.keys(finalReducers)</span><br><span class="line"></span><br><span class="line">  // This is used to make sure we don&#x27;t warn about the same</span><br><span class="line">  // keys multiple times.</span><br><span class="line">  let unexpectedKeyCache</span><br><span class="line">  if (process.env.NODE_ENV !== &#x27;production&#x27;) &#123;</span><br><span class="line">    unexpectedKeyCache = &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  let shapeAssertionError</span><br><span class="line">  try &#123;</span><br><span class="line">    &lt;!-- assertReducerShape 函数确保每个reducer执行都有默认返回值 --&gt;</span><br><span class="line">    assertReducerShape(finalReducers)</span><br><span class="line">  &#125; catch (e) &#123;</span><br><span class="line">    shapeAssertionError = e</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return function combination(state = &#123;&#125;, action) &#123;</span><br><span class="line">    if (shapeAssertionError) &#123;</span><br><span class="line">      throw shapeAssertionError</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (process.env.NODE_ENV !== &#x27;production&#x27;) &#123;</span><br><span class="line">      const warningMessage = getUnexpectedStateShapeWarningMessage(</span><br><span class="line">        state,</span><br><span class="line">        finalReducers,</span><br><span class="line">        action,</span><br><span class="line">        unexpectedKeyCache</span><br><span class="line">      )</span><br><span class="line">      if (warningMessage) &#123;</span><br><span class="line">        warning(warningMessage)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    let hasChanged = false</span><br><span class="line">    const nextState = &#123;&#125;</span><br><span class="line">    &lt;!-- 组装新的reducer --&gt;</span><br><span class="line">    for (let i = 0; i &lt; finalReducerKeys.length; i++) &#123;</span><br><span class="line">      const key = finalReducerKeys[i]</span><br><span class="line">      const reducer = finalReducers[key]</span><br><span class="line">      const previousStateForKey = state[key]</span><br><span class="line">      const nextStateForKey = reducer(previousStateForKey, action)</span><br><span class="line">      &lt;!-- 确保每个reducer执行有默认返回值 --&gt;</span><br><span class="line">      if (typeof nextStateForKey === &#x27;undefined&#x27;) &#123;</span><br><span class="line">        const errorMessage = getUndefinedStateErrorMessage(key, action)</span><br><span class="line">        throw new Error(errorMessage)</span><br><span class="line">      &#125;</span><br><span class="line">      nextState[key] = nextStateForKey</span><br><span class="line">      hasChanged = hasChanged || nextStateForKey !== previousStateForKey</span><br><span class="line">    &#125;</span><br><span class="line">    hasChanged =</span><br><span class="line">      hasChanged || finalReducerKeys.length !== Object.keys(state).length</span><br><span class="line">    return hasChanged ? nextState : state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>compose</li>
+</ul>
+<p>在看applyMiddleware函数前，先了解一下compose方法，这个方法将多个函数数组变成了循环调用，即前一个函数的执行结果作为了后一个函数的参数。(同时我也觉得这段代码是redux库中实现的最精妙的方式。)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">export default function compose(...funcs) &#123;</span><br><span class="line">  if (funcs.length === 0) &#123;</span><br><span class="line">    return arg =&gt; arg</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if (funcs.length === 1) &#123;</span><br><span class="line">    return funcs[0]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return funcs.reduce((a, b) =&gt; (...args) =&gt; a(b(...args)))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 转为es5语法帮助理解 --&gt;</span><br><span class="line">function compose() &#123;</span><br><span class="line">  var _len = arguments.length;</span><br><span class="line">  var funcs = [];</span><br><span class="line">  for (var i = 0; i &lt; _len; i++) &#123;</span><br><span class="line">    funcs[i] = arguments[i];</span><br><span class="line">  &#125;</span><br><span class="line">  &lt;!-- 如果没有传入参数，那么直接透传传入的参数 --&gt;</span><br><span class="line">  if (funcs.length === 0) &#123;</span><br><span class="line">    return function (arg) &#123;</span><br><span class="line">      return arg;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 如果传入了一个函数，那么直接返回该函数处理传入的参数 --&gt;</span><br><span class="line">  if (funcs.length === 1) &#123;</span><br><span class="line">    return funcs[0];</span><br><span class="line">  &#125;</span><br><span class="line">  &lt;!-- 注意reduce函数为从右向左执行 --&gt;</span><br><span class="line">  return funcs.reduce(function (a, b) &#123;</span><br><span class="line">    return function () &#123;</span><br><span class="line">      return a(b.apply(undefined, arguments));</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>举例查看compose的执行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const value=compose(function(value)&#123;</span><br><span class="line">  return value+1;</span><br><span class="line">&#125;,function(value)&#123;</span><br><span class="line">  return value*2;</span><br><span class="line">&#125;,function(value)&#123;</span><br><span class="line">  return value-3;</span><br><span class="line">&#125;)(2);</span><br><span class="line">value = -1 // （2-3）*2 +1 </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>applyMiddleware</li>
+</ul>
+<p>applyMiddleware是用来处理传入中间件的函数，传入中间件是为了增强dispatch函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">export default function applyMiddleware(...middlewares) &#123;</span><br><span class="line">  return createStore =&gt; (...args) =&gt; &#123;</span><br><span class="line">    const store = createStore(...args)</span><br><span class="line">    let dispatch = () =&gt; &#123;</span><br><span class="line">      throw new Error(</span><br><span class="line">        &#x27;Dispatching while constructing your middleware is not allowed. &#x27; +</span><br><span class="line">          &#x27;Other middleware would not be applied to this dispatch.&#x27;</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    const middlewareAPI = &#123;</span><br><span class="line">      getState: store.getState,</span><br><span class="line">      dispatch: (...args) =&gt; dispatch(...args)</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;!-- 先将传入的中间件都执行一遍 --&gt;</span><br><span class="line">    const chain = middlewares.map(middleware =&gt; middleware(middlewareAPI))</span><br><span class="line">    &lt;!-- 再对执行结果调用compose方法，增强dispatch --&gt;</span><br><span class="line">    dispatch = compose(...chain)(store.dispatch)</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">      ...store,</span><br><span class="line">      dispatch</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>redux中目前最核心的几个方法基本上都列举出来了，如果有不足和错误的地方还请建议改正。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2020/01/04/%E8%81%8A%E8%81%8A%E5%89%8D%E7%AB%AF%E5%9F%8B%E7%82%B9%E7%9A%84%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/01/04/%E8%81%8A%E8%81%8A%E5%89%8D%E7%AB%AF%E5%9F%8B%E7%82%B9%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">聊聊前端埋点的实现</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-04 13:19:24" itemprop="dateCreated datePublished" datetime="2020-01-04T13:19:24+08:00">2020-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近接手的需求产品需要增加埋点，以便查看上线后的效果，而公司内部有个公用的埋点库，基本原理就是请求服务器1*1像素的图片，在url后加上query参数达到埋点效果。</p>
+<p>但是！测试小姐姐在某天突然和我，在控制台的network里看不到埋点触发的请求了，我打开本地开发环境，发现埋点没有问题，那么和测试环境唯一的区别就是npm包的版本不一样了（package.json中我们没有锁定版本），于是本地重新执行npm install后， 果然复现问题了。</p>
+<p>按理说公用库每次发布都会经过测试，不会出现这么明显的错误呀，于是我查看了库的源码，有个特别的方法引起了我的注意。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.sendBeacon</span><br></pre></td></tr></table></figure>
+<p>接下来我们就聊聊sendBeacon这个方法。</p>
+<h2 id="navigator-sendBeacon"><a href="#navigator-sendBeacon" class="headerlink" title="navigator.sendBeacon()"></a>navigator.sendBeacon()</h2><p>语法:  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.sendBeacon(url, data);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>url: 参数表明 data 将要被发送到的网络地址。</p>
+</li>
+<li><p>data: 参数是将要发送的 ArrayBufferView 或 Blob, DOMString 或者 FormData 类型的数据。</p>
+</li>
+</ul>
+<p>sendBeacon主要解决的问题是异步埋点的触发时机问题。</p>
+<p>例如在创建流程完成时需要触发埋点，但是创建完成后需要页面跳转至其他页面（非spa），这时候如果需要触发埋点，浏览器就会延迟执行跳转的逻辑或者请求会被cancel，影响页面性能，所以出现了sendBeacon方法。<br>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&#x27;unload&#x27;, logData, false);</span><br><span class="line"></span><br><span class="line">function logData() &#123;</span><br><span class="line">    navigator.sendBeacon(&quot;/log&quot;, analyticsData);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用 sendBeacon() 方法会使用户代理在有机会时异步地向服务器发送数据，同时不会延迟页面的卸载或影响下一导航的载入性能。这就解决了提交分析数据时的所有的问题：数据可靠，传输异步并且不会影响下一页面的加载。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>祝大家2020新年快乐！<br>同时尽量督促自己努力完成每月一篇博客的目标！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2019/03/25/%E6%B5%85%E6%9E%90react-diff%E7%9A%84%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/03/25/%E6%B5%85%E6%9E%90react-diff%E7%9A%84%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">浅析react diff的机制</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-03-25 21:15:51" itemprop="dateCreated datePublished" datetime="2019-03-25T21:15:51+08:00">2019-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>一、 基本概念</p>
+<h2 id="Real-DOM：浏览器中真实存在的节点。"><a href="#Real-DOM：浏览器中真实存在的节点。" class="headerlink" title="Real DOM：浏览器中真实存在的节点。"></a>Real DOM：浏览器中真实存在的节点。</h2><p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/RealDOM.png" alt="Real DOM"></p>
+<p>Virtual dom：使用js描述Real DOM的对象。</p>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/VirtualDOM.png" alt="Virtual DOM"></p>
+<p>Virtual dom 转化为 Real DOM：</p>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/v2r.png" alt="Virtual DOM -&gt; Real DOM"></p>
+<h2 id="二、-为什么要使用Virtual-DOM"><a href="#二、-为什么要使用Virtual-DOM" class="headerlink" title="二、 为什么要使用Virtual DOM"></a>二、 为什么要使用Virtual DOM</h2><p>  从浏览器的角度来说，js执行肯定没有直接渲染html快才对，那我们为什么需要v-dom呢。先从浏览器的工作原说起：</p>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/browser.png" alt="浏览器工作原理"></p>
+<p>Repaint（重绘）：元素产生了不影响排版的情况下后对这个元素进行重新绘制的过程。</p>
+<p>Reflow（重排）：元素产生了对文档树排版有影响的样式变化，对所有受影响的dom节点进行重新排版的过程。</p>
+<p>提高网页性能，就是要降低”重排”和”重绘”的频率和成本，尽量少触发重新渲染。这就是v-dom帮我们完成的事情。<br>（Tips：所以一些对dom操作不多对页面，还是尽量使用html编写，或者对速度有要求的页面可以通过ssr实现效果。）</p>
+<p>浏览器对于重排和重绘的优化：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">div.style.color = &#x27;red&#x27;;</span><br><span class="line">div.style.marginTop = &#x27;10px&#x27; // 浏览器会合并执行，只触发一次重绘和重排</span><br></pre></td></tr></table></figure>
+
+<p>浏览器无法优化的情况：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div.style.color = &#x27;red&#x27;;</span><br><span class="line">const margin = parseInt(div.style.marginTop); // 无法优化，立即进行一次重绘</span><br><span class="line">div.style.marginTop = &#x27;10px&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>面对浏览器无法优化的情况，我们就需要v-dom的帮助。</p>
+<h2 id="三、-React-diff策略"><a href="#三、-React-diff策略" class="headerlink" title="三、 React diff策略"></a>三、 React diff策略</h2><ul>
+<li>tree diff：Web UI 中 DOM 节点跨层级的移动操作特别少，可以忽略不计。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/treeDiff.png" alt="tree diff"></p>
+<ul>
+<li>component diff：拥有相同类的两个组件将会生成相似的树形结构，拥有不同类的两个组件将会生成不同的树形结构</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/componentDiff.png" alt="component diff"></p>
+<ul>
+<li><p>element diff：对于同一层级的一组子节点，它们可以通过唯一 id 进行区分。</p>
+<ul>
+<li>INSERT_MARKUP，新的 component 类型不在老集合里， 即是全新的节点，需要对新节点执行插入操作。 </li>
+<li>MOVE_EXISTING，在老集合有新 component 类型，且 element 是可更新的类型，generateComponentChildren 已调用 receiveComponent，这种情况下 prevChild&#x3D;nextChild，就需要做移动操作，可以复用以前的 DOM 节点。 </li>
+<li>REMOVE_NODE，老 component 类型，在新集合里也有，但对应的 element 不同则不能直接复用和更新，需要执行删除操作，或者老 component 不在新集合里的，也需要执行删除操作。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/domChange.png" alt="domChange"></p>
+<p><img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/domDIff.png" alt="domDIff"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2018/03/10/react-router-v4-code-split/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/03/10/react-router-v4-code-split/" class="post-title-link" itemprop="url">react-router v4 code split</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-03-10 20:38:44" itemprop="dateCreated datePublished" datetime="2018-03-10T20:38:44+08:00">2018-03-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="为什么需要code-split"><a href="#为什么需要code-split" class="headerlink" title="为什么需要code split"></a>为什么需要code split</h2><p>现在越来越多的网页应用都变成了spa，spa的用户体验自然是比传统网页好。但是随着项目越来越大，而spa又是一次性将全部代码下载至本地，所以用户在首屏浏览的等待时间可能会过长，这时候我们就需要使用到代码分割（code split）。代码分割可以在用户跳转页面时根据路由加载对应页面的文件，这样就减小了首次下载的文件体积，缩短白屏时间。</p>
+<h2 id="bundle-loader"><a href="#bundle-loader" class="headerlink" title="bundle-loader"></a>bundle-loader</h2><p>这是webpack官方用来分割代码的插件，在现有项目中使用这个插件需要如下几步操作：</p>
+<ul>
+<li>安装（废话。。。）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i bundle-loader --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在webpack中配置插件</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">  rules: [&#123;</span><br><span class="line">    test: /\.js$/,</span><br><span class="line">    exclude: /node_modules/,</span><br><span class="line">    loader: &#x27;babel-loader&#x27;, // 添加bundle-loader</span><br><span class="line">    query: &#123;</span><br><span class="line">      plugins: [</span><br><span class="line">        [&#x27;import&#x27;, [&#123; libraryName: &quot;antd&quot;, style: true &#125;]],</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    test: /\.css$/,</span><br><span class="line">    loader: &#x27;style-loader!css-loader&#x27;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    test: /\.less$/,</span><br><span class="line">    use: [&#123;</span><br><span class="line">      loader: &quot;style-loader&quot;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      loader: &quot;css-loader&quot;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      loader: &quot;less-loader&quot;</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;],</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>插件的使用</li>
+</ul>
+<p>我们先需要定义一个组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &#x27;react&#x27;;</span><br><span class="line"></span><br><span class="line">class Bundle extends Component &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    super()</span><br><span class="line">    this.state = &#123;</span><br><span class="line">      mod: null</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    this.props.load((mod) =&gt; &#123;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        mod: mod.default || mod</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      this.state.mod ? this.props.children(this.state.mod) : null</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default Bundle;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然后在路由组件中给我们需要分割的组件做如下操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import Bundle from &#x27;./components/bundle/Bundle&#x27;;</span><br><span class="line"> &lt;div&gt;</span><br><span class="line">  &lt;Route</span><br><span class="line">    path=&quot;/&quot;</span><br><span class="line">    exact</span><br><span class="line">    render=&#123;() =&gt; (</span><br><span class="line">      &lt;Bundle load=&#123;require(&#x27;bundle-loader?lazy!./components/home/Home&#x27;)&#125;&gt;</span><br><span class="line">        &#123;Home =&gt; &lt;Home /&gt;&#125;</span><br><span class="line">      &lt;/Bundle&gt;)</span><br><span class="line">    &#125;</span><br><span class="line">  /&gt;</span><br><span class="line">   &lt;Route</span><br><span class="line">    path=&quot;/movieDetail/:id&quot;</span><br><span class="line">    exact</span><br><span class="line">    render=&#123;props =&gt; ( // 如果需要route组件提供相关的props则需要传入此参数</span><br><span class="line">      &lt;Bundle load=&#123;require(&#x27;bundle-loader?lazy!./components/movieDetail/MovieDetail&#x27;)&#125;&gt;</span><br><span class="line">        &#123;MovieDetail =&gt; &lt;MovieDetail &#123;...props&#125; /&gt;&#125;</span><br><span class="line">      &lt;/Bundle&gt;)</span><br><span class="line">    &#125;</span><br><span class="line">  /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接下来执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build </span><br></pre></td></tr></table></figure>
+<p>就可以看到代码成功被分割的情况啦～<br>  <img src="https://raw.githubusercontent.com/Renascence/Renascence.github.io/hexo/source/_posts/img/codeSplit.png" alt="分割代码后打包效果"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2018/01/30/es6%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/01/30/es6%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7/" class="post-title-link" itemprop="url">es6常用特性</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-01-30 22:18:31" itemprop="dateCreated datePublished" datetime="2018-01-30T22:18:31+08:00">2018-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>使用es6语法开发也有一年多了，总结一下es6中常用的一些技巧。</p>
+<h2 id="1-解构与展开运算符"><a href="#1-解构与展开运算符" class="headerlink" title="1. 解构与展开运算符"></a>1. 解构与展开运算符</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const student = &#123;</span><br><span class="line">  name: &#x27;xiaoming&#x27;,</span><br><span class="line">  id: 1,</span><br><span class="line">  age: 23,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果在es5中想去除student中的变量，需要这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const name = student.name, id=student.id, age=student.age</span><br></pre></td></tr></table></figure>
+
+<p>这样的代码过于繁琐，我们可以使用es6的解构语法来优化它。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const &#123;name , age, id&#125; = student</span><br></pre></td></tr></table></figure>
+
+<p>展开运算符和解构结合使用也能简化部分代码，比如student这个对象中有3个属性值，现在需要其中除去name剩下的2个字段组成新的对象，可以这么做</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const &#123;name, ...rest&#125; = student</span><br><span class="line">rest // &#123;age: 23, id:1&#125; 注意：此操作为深拷贝</span><br></pre></td></tr></table></figure>
+
+<p>展开运算符在开发中使用最多的还是要数redux了，不使用展开运算符：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function todoApp(state = initialState, action) &#123;</span><br><span class="line">  switch (action.type) &#123;</span><br><span class="line">    case SET_VISIBILITY_FILTER:</span><br><span class="line">      return Object.assign(&#123;&#125;, state, &#123;</span><br><span class="line">        visibilityFilter: action.filter</span><br><span class="line">      &#125;)</span><br><span class="line">    default:</span><br><span class="line">      return state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用后：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function todoApp(state = initialState, action) &#123;</span><br><span class="line">  switch (action.type) &#123;</span><br><span class="line">    case SET_VISIBILITY_FILTER:</span><br><span class="line">      return &#123; ...state, visibilityFilter: action.filter &#125;</span><br><span class="line">    default:</span><br><span class="line">      return state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>替换了Object.assign方法，代码更简洁。</p>
+<p>小技巧：使用解构交换两个变量的值:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[a,b] = [b,a]</span><br></pre></td></tr></table></figure>
+<p>最早看到这种操作方式是在Python中，现在es6也支持了。<br>第一次看到这个代码惊为天人，省去了中间变量的声明，把三行代码缩减至一行，确实是很实用的功能。</p>
+<h2 id="2-arrow-funtion"><a href="#2-arrow-funtion" class="headerlink" title="2. arrow funtion"></a>2. arrow funtion</h2><p>箭头函数简化了function语法，同时解决了this指向问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Person() &#123;</span><br><span class="line">  this.age = 0;</span><br><span class="line">  setInterval(function() &#123;</span><br><span class="line">    this.age // 非严格模式指向window对象</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在箭头函数出现之前我们一般这么解决问题:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Person() &#123;</span><br><span class="line">  var that = this;</span><br><span class="line">  that.age = 0;</span><br><span class="line">  setInterval(function() &#123;</span><br><span class="line">    that.age++; // 在外部申明变量指向this，在函数内部调用</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>借助箭头函数，我们可以这样写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Person()&#123;</span><br><span class="line">  this.age = 0;</span><br><span class="line">  setInterval(() =&gt; &#123;</span><br><span class="line">    this.age++;</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外，箭头函数中的this不会被call&#x2F;bind改变指向。</p>
+<p>箭头函数不绑定arguments对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const arguments = 42;</span><br><span class="line">const arr = () =&gt; arguments; </span><br><span class="line">arr() // 42 全部变量 可以使用剩余参数方式访问传入参数</span><br></pre></td></tr></table></figure>
+<h2 id="3-函数默认参数"><a href="#3-函数默认参数" class="headerlink" title="3. 函数默认参数"></a>3. 函数默认参数</h2><p>在es5中，对传入参数判断一般这样写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function multiply(a,b) &#123;</span><br><span class="line">  b = (typeof b !== &#x27;undefined&#x27;) ?  b : 1;</span><br><span class="line">  return a * b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>借助默认参数，可以改写成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function multiply(a, b = 1) &#123; // 默认参数</span><br><span class="line">  return a * b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Promise"><a href="#4-Promise" class="headerlink" title="4. Promise"></a>4. Promise</h2><p>Promise 解决了es5中回调地狱的问题，让代码逻辑变得更加直观。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const promise = new Promise((resolve,reject)=&gt; &#123;</span><br><span class="line">  setTimeout(() =&gt; &#123; // 创建异步任务</span><br><span class="line">    if(data) &#123;</span><br><span class="line">      resolve(data) // 正常返回数据</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      reject(err) // 异常</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 指定回调函数</span><br><span class="line">promise.then(res =&gt; &#123;</span><br><span class="line">  console.log(res)  // 监听成功的回调</span><br><span class="line">&#125;).catch(err =&gt; &#123;</span><br><span class="line">  console.log(err)  // 监听错误的回调</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>为了让代码看上去更简洁，通常还会使用es7规范中的async&#x2F;await语法（通过webpakck插件转译）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">async function getData(url)&#123;</span><br><span class="line">  return fetch(url)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">  const data = await getData(url)</span><br><span class="line">&#125; catch(err) &#123;</span><br><span class="line">  console.log(err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 如果有多个互不依赖的请求可以使用promise.all提升效率</span><br><span class="line">const [res1,res2,res3] = await Promise.all([getData1,getData2,getData3])</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-fetch"><a href="#5-fetch" class="headerlink" title="5. fetch"></a>5. fetch</h2><p>在过去浏览器发起请求都是ajax,现在可以使用新的api fetch。<br>准确来说 fetch 应该属于es7的标准,但是大部分浏览器都已经支持,而且这个特性我使用比较多很方便,所以一起列出来。<br>fetch返回的是promise对象,可以直接使用then和catch方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// 默认为get </span><br><span class="line">fetch(url)</span><br><span class="line">.then((response) =&gt; &#123;</span><br><span class="line">  console.log(response)</span><br><span class="line">&#125;)</span><br><span class="line">.catch((err) =&gt; &#123;</span><br><span class="line">  console.log(err)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 设置post请求参数</span><br><span class="line">const option = &#123;</span><br><span class="line">  method: &#x27;POST&#x27;,</span><br><span class="line">  body: &#123;&#125;,</span><br><span class="line">&#125;</span><br><span class="line">fetch(url, option)</span><br><span class="line">.then((response) =&gt; &#123;</span><br><span class="line">  console.log(response)</span><br><span class="line">&#125;)</span><br><span class="line">.catch((err) =&gt; &#123;</span><br><span class="line">  console.log(err)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>注意: </p>
+<ul>
+<li>Fetch 请求默认是不带 cookie 的，需要设置 fetch(url, {credentials: ‘include’})</li>
+<li>服务器返回 400，500 错误码时并不会 reject，只有网络错误这些导致请求不能完成时，fetch 才会被 reject。</li>
+</ul>
+<h2 id="6-const-和-let"><a href="#6-const-和-let" class="headerlink" title="6. const 和 let"></a>6. const 和 let</h2><p>在es5中，只有函数作用域和全局作用域的概念，es6中新引入了块级作用域的概念。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  let a = 1;</span><br><span class="line">&#125;</span><br><span class="line">a // Uncaught ReferenceError: a is not defined</span><br></pre></td></tr></table></figure>
+<p>var申明的变量存在变量提升，const和let不存在。</p>
+<p>对于简单类型，使用const 定义常量，使用let 定义变量。</p>
+<p>对于复杂类型来说，都应该使用const 定义。</p>
+<p>使用const声明的复杂类型保证了变量的类型不会改变,但是不能保证复杂元素中的值不被改变。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const a = &#123;b:1&#125;</span><br><span class="line">a = 1  // Uncaught TypeError: Assignment to constant variable.</span><br><span class="line">a.b = 2</span><br><span class="line">a //  &#123;b:2&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2017/12/03/js%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%AD%E7%9A%84AMD%E5%92%8CCMD%E8%A7%84%E8%8C%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/12/03/js%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%AD%E7%9A%84AMD%E5%92%8CCMD%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">js模块化中的AMD和CMD规范</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-03 23:30:11" itemprop="dateCreated datePublished" datetime="2017-12-03T23:30:11+08:00">2017-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>上篇文章中说了在node环境中，各个模块基本上都是已经存储在硬盘上可以直接调用，但是在浏览器环境下，各个模块加载的时间和顺序都不一样，CommonJS是不适用的，所以适用于浏览器环境的模块规范 AMD 和 CMD 就诞生了。</p>
+<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>AMD模块推荐使用写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define(&quot;alpha&quot;, [&quot;require&quot;, &quot;exports&quot;, &quot;beta&quot;], function (require, exports, beta) &#123;</span><br><span class="line">  exports.verb = function() &#123;</span><br><span class="line">    return beta.verb();</span><br><span class="line">    return require(&quot;beta&quot;).verb();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在define函数中，第一个参数指定了当前模块的id，第二个参数指定了该模块需要用到哪些依赖，第三个参数为模块本身。</p>
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><p>CMD推荐写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">define(id, function(require, exports, module) &#123;</span><br><span class="line">  // 获取模块 a 的接口</span><br><span class="line">  var a = require(&#x27;./a&#x27;);</span><br><span class="line"></span><br><span class="line">  // 调用模块 a 的方法</span><br><span class="line">  a.doSomething();</span><br><span class="line"></span><br><span class="line">  exports.doSomething = function() &#123;&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>第一个参数是本模块的id，第二个参数为一个函数，里面需要指明依赖的模块和导出的内容。</p>
+<p>通过以上代码，我们可以看出两者使用方式的区别，AMD需要提前声明依赖的模块，而CMD则是依赖就近，使用前才声明。</p>
+<p>虽然RequireJS（AMD）和SeaJS（CMD）在使用时不使用推荐写法也能工作，但是为了避免出现奇怪的问题（例如执行顺序），最好还是按照推荐写法实现。</p>
+<h3 id="我在项目中常用的模块机制"><a href="#我在项目中常用的模块机制" class="headerlink" title="我在项目中常用的模块机制"></a>我在项目中常用的模块机制</h3><p>现在我们使用的最多的开发环境就是webpack + babel了，在开发时，通常直接使用import，但是为了考虑浏览器的兼容情况，babel通常把模块转换为CommonJS规范的模块。</p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD模块规范</a><br><a target="_blank" rel="noopener" href="https://github.com/seajs/seajs/issues/242">CMD模块规范</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Logging</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
