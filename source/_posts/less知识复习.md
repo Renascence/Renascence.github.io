@@ -8,7 +8,7 @@ Sass和Less都属于Css预处理器，但是说来惭愧，使用了这么久用
 
 正好最近我在开发公司内部使用的组件，有些组件会根据传入的参数不同，显示不同的颜色。
 
-```typescript
+```tsx
 ...
 
 <Notice type='success'> // 展示为绿色
@@ -18,10 +18,10 @@ Sass和Less都属于Css预处理器，但是说来惭愧，使用了这么久用
 
 那么组件内部实现应该类似于这样
 
-```typescript
+```tsx
 // Notice.js
 const Notice = ({type}) => {
-  return <div classname=`notice-${type}`>
+  return <div classname={`notice-${type}`}>
   ...
   </div>
 }
