@@ -2,6 +2,15 @@
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "dev": "hexo server",
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "rebuild": "hexo clean && hexo generate",
+    "deploy": "hexo deploy",
+    "release": "hexo clean && hexo generate --deploy",
+    "preview": "hexo generate && hexo server"
+  },
   "hexo": {
     "version": "8.1.2"
   },
