@@ -141,12 +141,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -168,6 +168,95 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2017/12/03/js%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%AD%E7%9A%84AMD%E5%92%8CCMD%E8%A7%84%E8%8C%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/12/03/js%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%AD%E7%9A%84AMD%E5%92%8CCMD%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">js模块化中的AMD和CMD规范</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-12-03 23:30:11" itemprop="dateCreated datePublished" datetime="2017-12-03T23:30:11+08:00">2017-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>上篇文章中说了在node环境中，各个模块基本上都是已经存储在硬盘上可以直接调用，但是在浏览器环境下，各个模块加载的时间和顺序都不一样，CommonJS是不适用的，所以适用于浏览器环境的模块规范 AMD 和 CMD 就诞生了。</p>
+<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>AMD模块推荐使用写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define(&quot;alpha&quot;, [&quot;require&quot;, &quot;exports&quot;, &quot;beta&quot;], function (require, exports, beta) &#123;</span><br><span class="line">  exports.verb = function() &#123;</span><br><span class="line">    return beta.verb();</span><br><span class="line">    return require(&quot;beta&quot;).verb();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在define函数中，第一个参数指定了当前模块的id，第二个参数指定了该模块需要用到哪些依赖，第三个参数为模块本身。</p>
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><p>CMD推荐写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">define(id, function(require, exports, module) &#123;</span><br><span class="line">  // 获取模块 a 的接口</span><br><span class="line">  var a = require(&#x27;./a&#x27;);</span><br><span class="line"></span><br><span class="line">  // 调用模块 a 的方法</span><br><span class="line">  a.doSomething();</span><br><span class="line"></span><br><span class="line">  exports.doSomething = function() &#123;&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>第一个参数是本模块的id，第二个参数为一个函数，里面需要指明依赖的模块和导出的内容。</p>
+<p>通过以上代码，我们可以看出两者使用方式的区别，AMD需要提前声明依赖的模块，而CMD则是依赖就近，使用前才声明。</p>
+<p>虽然RequireJS（AMD）和SeaJS（CMD）在使用时不使用推荐写法也能工作，但是为了避免出现奇怪的问题（例如执行顺序），最好还是按照推荐写法实现。</p>
+<h3 id="我在项目中常用的模块机制"><a href="#我在项目中常用的模块机制" class="headerlink" title="我在项目中常用的模块机制"></a>我在项目中常用的模块机制</h3><p>现在我们使用的最多的开发环境就是webpack + babel了，在开发时，通常直接使用import，但是为了考虑浏览器的兼容情况，babel通常把模块转换为CommonJS规范的模块。</p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD模块规范</a><br><a target="_blank" rel="noopener" href="https://github.com/seajs/seajs/issues/242">CMD模块规范</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

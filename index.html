@@ -141,12 +141,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -168,6 +168,105 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2026/09/10/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1vibe-coding%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/09/10/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1vibe-coding%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">记录一次vibe coding踩坑记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-09-10 14:23:39" itemprop="dateCreated datePublished" datetime="2026-09-10T14:23:39+08:00">2026-09-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-11 14:35:34" itemprop="dateModified" datetime="2026-09-11T14:35:34+08:00">2026-09-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近在用 Node.js 写一个 BFF 层，接口里需要多次请求后端并聚合数据，逻辑类似这样：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dataA = <span class="keyword">await</span> <span class="title function_">requestA</span>();</span><br><span class="line"><span class="keyword">const</span> dataB = <span class="keyword">await</span> <span class="title function_">requestB</span>();</span><br><span class="line"><span class="keyword">const</span> dataC = <span class="keyword">await</span> <span class="title function_">requestC</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="title function_">merge</span>(dataA, dataB, dataC);</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题：每个请求都要手动带-Cookie"><a href="#问题：每个请求都要手动带-Cookie" class="headerlink" title="问题：每个请求都要手动带 Cookie"></a>问题：每个请求都要手动带 Cookie</h2><p>但在转发请求时涉及登录信息校验，后端接口需要验证 Cookie，所以必须手动带上 Cookie，类似这样：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cookie = req.<span class="property">headers</span>.<span class="property">cookie</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dataA = <span class="keyword">await</span> <span class="title function_">requestA</span>(&#123; <span class="attr">headers</span>: &#123; cookie &#125; &#125;);</span><br><span class="line"><span class="keyword">const</span> dataB = <span class="keyword">await</span> <span class="title function_">requestB</span>(&#123; <span class="attr">headers</span>: &#123; cookie &#125; &#125;);</span><br><span class="line"><span class="keyword">const</span> dataC = <span class="keyword">await</span> <span class="title function_">requestC</span>(&#123; <span class="attr">headers</span>: &#123; cookie &#125; &#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="title function_">merge</span>(dataA, dataB, dataC);</span><br></pre></td></tr></table></figure>
+
+<p>如果接口很多，每个都手动传入 Cookie 就太繁琐了。</p>
+<p>于是我和 Copilot 说：“优化一下传参方式，避免每个请求都手动传入 Cookie。”</p>
+<h2 id="第一次优化：创建带-Cookie-的-axios-实例"><a href="#第一次优化：创建带-Cookie-的-axios-实例" class="headerlink" title="第一次优化：创建带 Cookie 的 axios 实例"></a>第一次优化：创建带 Cookie 的 axios 实例</h2><p>随后代码被改成了下面这样：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// api 请求文件</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">createRequest</span> = (<span class="params">cookie</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> request = axios.<span class="title function_">create</span>(&#123; <span class="attr">baseURL</span>: <span class="variable constant_">HOST</span> &#125;);</span><br><span class="line">  request.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(<span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">    config.<span class="property">headers</span>.<span class="property">Cookie</span> = cookie;</span><br><span class="line">    <span class="keyword">return</span> config;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> request;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 业务调用：创建实例并放到全局</span></span><br><span class="line"><span class="keyword">const</span> globalInst = <span class="title function_">createRequest</span>(req.<span class="property">headers</span>.<span class="property">cookie</span>);</span><br><span class="line"><span class="comment">// request 内部依赖全局的 axios 实例</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">requestA</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  globalInst.<span class="title function_">get</span>(<span class="string">&#x27;xxxxx&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>乍一看没问题，测试也 OK。</p>
+<p>但每次请求都会创建一个 axios 实例，并发情况下可能出现 axios 实例覆盖，导致用户 B 用到用户 A 的 Cookie。这个问题就严重了。</p>
+<h2 id="追问：并发下会不会串-Cookie？"><a href="#追问：并发下会不会串-Cookie？" class="headerlink" title="追问：并发下会不会串 Cookie？"></a>追问：并发下会不会串 Cookie？</h2><p>于是我追问：</p>
+<p>“多用户并发的情况下，axios 会相互覆盖导致 bug 吗？”</p>
+<p>Copilot 很诚实地回答：同一个实例被多个用户共用，就会串号、互相覆盖，导致严重问题。😂</p>
+<p>吐槽：既然你知道会导致问题，为什么不一次帮我改好？🤦‍♂️</p>
+<h2 id="最终方案：用-AsyncLocalStorage-维护请求上下文"><a href="#最终方案：用-AsyncLocalStorage-维护请求上下文" class="headerlink" title="最终方案：用 AsyncLocalStorage 维护请求上下文"></a>最终方案：用 AsyncLocalStorage 维护请求上下文</h2><p>于是代码改成了下面这样：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入 Node.js 原生 async_hooks 模块，主要用于追踪异步操作、维护异步上下文，以及做监控、性能分析和链路追踪</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AsyncLocalStorage</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;async_hooks&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> serverApi = axios.<span class="title function_">create</span>(&#123; <span class="attr">baseURL</span>: <span class="variable constant_">HOST</span> &#125;);</span><br><span class="line"><span class="keyword">const</span> requestStorage = <span class="keyword">new</span> <span class="title class_">AsyncLocalStorage</span>&lt;<span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 在请求拦截器中自动注入当前上下文的 Cookie */</span></span><br><span class="line">serverApi.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(<span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> store = requestStorage.<span class="title function_">getStore</span>();</span><br><span class="line">  <span class="keyword">if</span> (store?.<span class="property">Cookie</span>) &#123;</span><br><span class="line">    config.<span class="property">headers</span>.<span class="property">Cookie</span> = store.<span class="property">Cookie</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 在指定的 AsyncLocalStorage 上下文中运行，让每个请求的认证信息互不干扰 */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> runWithContext&lt;T&gt;(<span class="attr">context</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt;, <span class="attr">fn</span>: <span class="function">() =&gt;</span> <span class="title class_">Promise</span>&lt;T&gt;): <span class="title class_">Promise</span>&lt;T&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> requestStorage.<span class="title function_">run</span>(context ? context : &#123;&#125;, fn);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 业务代码：</span></span><br><span class="line"><span class="keyword">await</span> <span class="title function_">runWithContext</span>(&#123; <span class="title class_">Cookie</span>: req.<span class="property">headers</span>.<span class="property">cookie</span> &#125;, <span class="title function_">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="title function_">requestA</span>();</span><br><span class="line">  <span class="title function_">requestB</span>();</span><br><span class="line">  <span class="title function_">requestC</span>();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// requestA 直接使用 serverApi</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">requestA</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> serverApi.<span class="title function_">get</span>(<span class="string">&#x27;xxxxx&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Vibe Coding 如今越来越常见，我在项目中也已经用了一段时间。</p>
+<p>可能是个人的原因，我仍然不太放心把业务代码完全交给 AI，所以通常是自己搭好整体框架，在细节实现部分交给 AI。这样每次需要 review 的代码不会太多，有问题也更容易及时发现。</p>
+<p>在之前的公司，开发完一个大需求、准备合并到 master 发版时，文件改动往往很多，因此规定：代码分支的 merge 至少需要小组内 2 人以上通过，尽可能保证代码质量，代价就是比较占用人力。</p>
+<p>回到 Vibe Coding 上，我的使用感受是：在快速搭建网页、能够明确描述具体展示需求时，它确实很好用，能大幅减少人力投入；但在与业务耦合较紧的模块里做改动，仍需小心谨慎，人工 review 必不可少。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1353,95 +1452,6 @@ let setCount = _useState[1]
 <p>对于复杂类型来说，都应该使用const 定义。</p>
 <p>使用const声明的复杂类型保证了变量的类型不会改变,但是不能保证复杂元素中的值不被改变。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const a = &#123;b:1&#125;</span><br><span class="line">a = 1  // Uncaught TypeError: Assignment to constant variable.</span><br><span class="line">a.b = 2</span><br><span class="line">a //  &#123;b:2&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2017/12/03/js%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%AD%E7%9A%84AMD%E5%92%8CCMD%E8%A7%84%E8%8C%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Logging">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Logging的博客">
-      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Logging的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/03/js%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%AD%E7%9A%84AMD%E5%92%8CCMD%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">js模块化中的AMD和CMD规范</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-12-03 23:30:11" itemprop="dateCreated datePublished" datetime="2017-12-03T23:30:11+08:00">2017-12-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-04 16:35:42" itemprop="dateModified" datetime="2026-09-04T16:35:42+08:00">2026-09-04</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>上篇文章中说了在node环境中，各个模块基本上都是已经存储在硬盘上可以直接调用，但是在浏览器环境下，各个模块加载的时间和顺序都不一样，CommonJS是不适用的，所以适用于浏览器环境的模块规范 AMD 和 CMD 就诞生了。</p>
-<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>AMD模块推荐使用写法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define(&quot;alpha&quot;, [&quot;require&quot;, &quot;exports&quot;, &quot;beta&quot;], function (require, exports, beta) &#123;</span><br><span class="line">  exports.verb = function() &#123;</span><br><span class="line">    return beta.verb();</span><br><span class="line">    return require(&quot;beta&quot;).verb();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>在define函数中，第一个参数指定了当前模块的id，第二个参数指定了该模块需要用到哪些依赖，第三个参数为模块本身。</p>
-<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><p>CMD推荐写法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">define(id, function(require, exports, module) &#123;</span><br><span class="line">  // 获取模块 a 的接口</span><br><span class="line">  var a = require(&#x27;./a&#x27;);</span><br><span class="line"></span><br><span class="line">  // 调用模块 a 的方法</span><br><span class="line">  a.doSomething();</span><br><span class="line"></span><br><span class="line">  exports.doSomething = function() &#123;&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>第一个参数是本模块的id，第二个参数为一个函数，里面需要指明依赖的模块和导出的内容。</p>
-<p>通过以上代码，我们可以看出两者使用方式的区别，AMD需要提前声明依赖的模块，而CMD则是依赖就近，使用前才声明。</p>
-<p>虽然RequireJS（AMD）和SeaJS（CMD）在使用时不使用推荐写法也能工作，但是为了避免出现奇怪的问题（例如执行顺序），最好还是按照推荐写法实现。</p>
-<h3 id="我在项目中常用的模块机制"><a href="#我在项目中常用的模块机制" class="headerlink" title="我在项目中常用的模块机制"></a>我在项目中常用的模块机制</h3><p>现在我们使用的最多的开发环境就是webpack + babel了，在开发时，通常直接使用import，但是为了考虑浏览器的兼容情况，babel通常把模块转换为CommonJS规范的模块。</p>
-<p>参考链接：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD模块规范</a><br><a target="_blank" rel="noopener" href="https://github.com/seajs/seajs/issues/242">CMD模块规范</a></p>
 
       
     </div>
