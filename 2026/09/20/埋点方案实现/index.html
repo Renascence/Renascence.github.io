@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.css" integrity="sha256-mdaMxrItEW6hMIVJJNPKuX0B7KCSJQVEv3mVY4N2we4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"renascence.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="1. 背景埋点可以记录用户行为，让我们分析系统操作哪些是高频低频，而且可以追溯到是哪一个用户修改了系统数据，这对于分析遇到的问题和改进系统有很大帮助。 2. 技术实现2.1 总体链路现有实现是一条 「浏览器采集 → 非阻塞上报 → 服务端落盘 → 离线落库」 的四段式链路，全部代码集中在 3 个文件内。    flowchart LR     subgraph B[&quot;浏览器&quot;]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="埋点方案实现">
+<meta property="og:url" content="https://renascence.github.io/2026/09/20/%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:site_name" content="Logging的博客">
+<meta property="og:description" content="1. 背景埋点可以记录用户行为，让我们分析系统操作哪些是高频低频，而且可以追溯到是哪一个用户修改了系统数据，这对于分析遇到的问题和改进系统有很大帮助。 2. 技术实现2.1 总体链路现有实现是一条 「浏览器采集 → 非阻塞上报 → 服务端落盘 → 离线落库」 的四段式链路，全部代码集中在 3 个文件内。    flowchart LR     subgraph B[&quot;浏览器&quot;]">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-09-20T07:43:37.000Z">
+<meta property="article:modified_time" content="2026-11-20T08:44:51.131Z">
+<meta property="article:author" content="Logging">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://renascence.github.io/2026/09/20/%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%E5%AE%9E%E7%8E%B0/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://renascence.github.io/2026/09/20/%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%E5%AE%9E%E7%8E%B0/","path":"2026/09/20/埋点方案实现/","title":"埋点方案实现"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>埋点方案实现 | Logging的博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.umd.js" integrity="sha256-QnJV4HT5r8i89ovZGRD86iynZqHerEbT2xt69vDM36I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"cdn":"https://cdn.bootcdn.net/ajax/libs/mermaid/10.9.1/mermaid.min.js","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Logging的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">https://github.com/Renascence</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">1. 背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">2. 技术实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E6%80%BB%E4%BD%93%E9%93%BE%E8%B7%AF"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 总体链路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E9%87%87%E9%9B%86%E5%B1%82%EF%BC%9Asrc-lib-track-ts"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 采集层：src&#x2F;lib&#x2F;track.ts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%BC%A0%E8%BE%93%E5%B1%82%EF%BC%9A%E9%9D%9E%E9%98%BB%E5%A1%9E%E4%B8%8A%E6%8A%A5"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 传输层：非阻塞上报</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E8%90%BD%E7%9B%98%E5%B1%82%EF%BC%9Asrc-pages-api-log-ts"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 落盘层：src&#x2F;pages&#x2F;api&#x2F;log.ts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E7%A6%BB%E7%BA%BF%E8%90%BD%E5%BA%93%EF%BC%9Alogs-logs-db"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 离线落库：logs&#x2F;logs.db</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Logging</p>
+  <div class="site-description" itemprop="description">讲道理此处应有描述，可是我不讲道理。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Renascence" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Renascence" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://renascence.github.io/2026/09/20/%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Logging">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logging的博客">
+      <meta itemprop="description" content="讲道理此处应有描述，可是我不讲道理。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="埋点方案实现 | Logging的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          埋点方案实现
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-09-20 15:43:37" itemprop="dateCreated datePublished" datetime="2026-09-20T15:43:37+08:00">2026-09-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-20 16:44:51" itemprop="dateModified" datetime="2026-11-20T16:44:51+08:00">2026-11-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h2><p>埋点可以记录用户行为，让我们分析系统操作哪些是高频低频，而且可以追溯到是哪一个用户修改了系统数据，这对于分析遇到的问题和改进系统有很大帮助。</p>
+<h2 id="2-技术实现"><a href="#2-技术实现" class="headerlink" title="2. 技术实现"></a>2. 技术实现</h2><h3 id="2-1-总体链路"><a href="#2-1-总体链路" class="headerlink" title="2.1 总体链路"></a>2.1 总体链路</h3><p>现有实现是一条 <strong>「浏览器采集 → 非阻塞上报 → 服务端落盘 → 离线落库」</strong> 的四段式链路，全部代码集中在 3 个文件内。</p>
+<pre>
+<code class="mermaid">
+
+flowchart LR
+    subgraph B[&quot;浏览器&quot;]
+        A[&quot;业务代码&lt;br&#x2F;&gt;axios.post &#x2F; put &#x2F; delete&quot;]
+        I[&quot;axios 拦截器&lt;br&#x2F;&gt;lib&#x2F;track.ts&quot;]
+        S[&quot;sendLog()&lt;br&#x2F;&gt;sendBeacon &#x2F; fetch&quot;]
+    end
+    subgraph N[&quot;Next.js 服务端&quot;]
+        L[&quot;API Route&lt;br&#x2F;&gt;pages&#x2F;api&#x2F;log.ts&quot;]
+        F[&quot;logs&#x2F;app-YYYY-MM-DD.log&lt;br&#x2F;&gt;JSON Lines&quot;]
+    end
+    subgraph O[&quot;离线（仓库外）&quot;]
+        D[&quot;logs&#x2F;logs.db&lt;br&#x2F;&gt;app_logs 表&quot;]
+    end
+
+    A --&gt; I
+    I --&gt; S
+    S --&gt;|&quot;POST &#x2F;api&#x2F;log&quot;| L
+    L --&gt; F
+    F -.-&gt;|&quot;手工 &#x2F; 定时导入&quot;| D
+</code>
+</pre>
+
+<p>关键特征：</p>
+<ul>
+<li><strong>无侵入</strong>：业务代码不需要任何埋点调用，拦截器注册在全局 axios 默认实例上（<code>src/lib/utils.ts</code> 中设置了 <code>axios.defaults.withCredentials = true</code>），所有走 axios 的请求自动纳入。</li>
+<li><strong>同源上报</strong>：上报地址 <code>/api/log</code> 与页面同源，避免跨域与 CORS 预检，也使得 <code>sendBeacon</code> 可以正常工作。</li>
+<li><strong>异步解耦</strong>：上报与业务响应完全解耦，落盘失败不影响业务。</li>
+</ul>
+<h3 id="2-2-采集层：src-lib-track-ts"><a href="#2-2-采集层：src-lib-track-ts" class="headerlink" title="2.2 采集层：src/lib/track.ts"></a>2.2 采集层：<code>src/lib/track.ts</code></h3><p>核心由五部分组成。</p>
+<p><strong>（1）拦截范围白名单</strong></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="attr">TARGET_METHODS</span>: <span class="title class_">TargetMethod</span>[] = [<span class="string">&#x27;post&#x27;</span>, <span class="string">&#x27;put&#x27;</span>, <span class="string">&#x27;patch&#x27;</span>, <span class="string">&#x27;delete&#x27;</span>];</span><br></pre></td></tr></table></figure>
+
+<p>只采集<strong>写操作</strong>，<code>GET</code> 请求不采集。设计取舍：写操作代表状态变更，是真正需要留痕的行为；读操作量级大且语义弱，采集价值与成本不成正比。</p>
+<p><strong>（2）请求拦截器：打时间戳</strong></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">axios.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(<span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> method = config.<span class="property">method</span>?.<span class="title function_">toLowerCase</span>();</span><br><span class="line">  <span class="keyword">if</span> (method &amp;&amp; <span class="variable constant_">TARGET_METHODS</span>.<span class="title function_">includes</span>(method)) &#123;</span><br><span class="line">    (config <span class="keyword">as</span> <span class="title class_">ExtendedAxiosRequestConfig</span>).<span class="property">metadata</span> = &#123; <span class="attr">startTime</span>: <span class="title class_">Date</span>.<span class="title function_">now</span>() &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> config <span class="keyword">as</span> <span class="title class_">ExtendedAxiosRequestConfig</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>config.metadata</code> 上挂载 <code>startTime</code>，供响应阶段计算耗时。只在白名单方法上挂载，避免无谓开销。</p>
+<p><strong>（3）响应拦截器：成功与失败双路径</strong></p>
+<p>成功路径与失败路径分别构造日志对象。两者字段基本一致，失败路径额外带 <code>error</code> 字段，且 <code>status</code> 在网络层失败时兜底为 <code>0</code>：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">status</span>: error.<span class="property">response</span>?.<span class="property">status</span> || <span class="number">0</span>,</span><br><span class="line"><span class="attr">error</span>: error.<span class="property">message</span> || <span class="string">&#x27;Network Error&#x27;</span>,</span><br></pre></td></tr></table></figure>
+
+<p><strong>（4）目标对象标识 → 可读名称翻译</strong></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getFormName</span>(<span class="params"><span class="attr">url</span>: <span class="built_in">string</span></span>): <span class="built_in">string</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> match = url.<span class="title function_">match</span>(<span class="regexp">/\/forms\/([a-f0-9-]+)\/records/</span>);</span><br><span class="line">  <span class="keyword">if</span> (match) <span class="keyword">return</span> formNameMap[match[<span class="number">1</span>]] || match[<span class="number">1</span>];</span><br><span class="line">  <span class="keyword">return</span> url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从 URL 中提取目标对象标识，在 <code>formNameMap</code>（42 条映射，覆盖两套环境）中查表。<strong>查不到时降级为裸 ID，URL 不匹配时降级为 URL 原文</strong>。</p>
+<p><strong>（5）操作类型与用户名</strong></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> actionMap = &#123; <span class="attr">post</span>: <span class="string">&#x27;新增&#x27;</span>, <span class="attr">put</span>: <span class="string">&#x27;修改&#x27;</span>, <span class="attr">patch</span>: <span class="string">&#x27;修改&#x27;</span>, <span class="attr">delete</span>: <span class="string">&#x27;删除&#x27;</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>用户名从 <code>localStorage</code> 读取 ，读取失败或未登录时兜底为 <code>unknown</code>。</p>
+<p><strong>日志字段定义</strong></p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>method</code></td>
+<td>string</td>
+<td>是</td>
+<td>大写 HTTP 方法，如 <code>POST</code></td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td>string</td>
+<td>是</td>
+<td>axios 的 <code>config.url</code>，相对路径，含记录 ID</td>
+</tr>
+<tr>
+<td><code>form</code></td>
+<td>string</td>
+<td>是</td>
+<td>目标对象可读名称；查表失败为裸 ID；URL 不匹配时为 URL 原文</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td>string</td>
+<td>是</td>
+<td><code>新增</code> &#x2F; <code>修改</code> &#x2F; <code>删除</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>number</td>
+<td>是</td>
+<td>HTTP 状态码；网络失败为 <code>0</code></td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td>number</td>
+<td>是</td>
+<td>浏览器端往返耗时（ms），含网络与服务端处理时间</td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td>string</td>
+<td>是</td>
+<td>用户昵称；未知为 <code>unknown</code></td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td>string</td>
+<td>否</td>
+<td>仅失败路径存在，如 <code>Request failed with status code 403</code></td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td>string</td>
+<td>是</td>
+<td>ISO 8601 <strong>UTC</strong> 时间，如 <code>2026-09-16T01:03:45.569Z</code></td>
+</tr>
+</tbody></table>
+<p><strong>注册时机</strong>：在 <code>src/pages/_app.tsx</code> 的 <code>useEffect</code> 中调用一次。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">setupLogger</span>();</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-传输层：非阻塞上报"><a href="#2-3-传输层：非阻塞上报" class="headerlink" title="2.3 传输层：非阻塞上报"></a>2.3 传输层：非阻塞上报</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sendLog</span>(<span class="params"><span class="attr">logData</span>: <span class="title class_">LogEntry</span></span>): <span class="built_in">void</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> navigator !== <span class="string">&#x27;undefined&#x27;</span> &amp;&amp; navigator.<span class="property">sendBeacon</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(logData)], &#123; <span class="attr">type</span>: <span class="string">&#x27;application/json&#x27;</span> &#125;);</span><br><span class="line">    <span class="keyword">if</span> (navigator.<span class="title function_">sendBeacon</span>(<span class="variable constant_">LOG_ENDPOINT</span>, blob)) <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">fetch</span>(<span class="variable constant_">LOG_ENDPOINT</span>, &#123;</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">    <span class="attr">headers</span>: &#123; <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span> &#125;,</span><br><span class="line">    <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(logData),</span><br><span class="line">  &#125;).<span class="title function_">catch</span>(<span class="function">() =&gt;</span> &#123;&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>设计要点：</p>
+<ul>
+<li><strong><code>sendBeacon</code> 优先</strong>：浏览器在空闲时机发送，页面卸载时也能送达，不会因为用户关页面而丢日志。</li>
+<li><strong><code>fetch</code> 降级</strong>：<code>sendBeacon</code> 不可用或返回 <code>false</code>（队列满）时降级。</li>
+<li><strong>静默失败</strong>：<code>.catch(() =&gt; &#123;&#125;)</code> 吞掉所有异常，埋点绝不抛错到业务链路。</li>
+<li><strong>避免递归</strong>：上报走的是 <code>sendBeacon</code> &#x2F; 原生 <code>fetch</code>，<strong>不经过 axios 拦截器</strong>，因此不会产生「上报请求被再次上报」的无限递归。</li>
+</ul>
+<h3 id="2-4-落盘层：src-pages-api-log-ts"><a href="#2-4-落盘层：src-pages-api-log-ts" class="headerlink" title="2.4 落盘层：src/pages/api/log.ts"></a>2.4 落盘层：<code>src/pages/api/log.ts</code></h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">LOG_DIR</span> = path.<span class="title function_">join</span>(process.<span class="title function_">cwd</span>(), <span class="string">&#x27;logs&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> (!fs.<span class="title function_">existsSync</span>(<span class="variable constant_">LOG_DIR</span>)) fs.<span class="title function_">mkdirSync</span>(<span class="variable constant_">LOG_DIR</span>, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getLogFilePath</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toISOString</span>().<span class="title function_">slice</span>(<span class="number">0</span>, <span class="number">10</span>);</span><br><span class="line">  <span class="keyword">return</span> path.<span class="title function_">join</span>(<span class="variable constant_">LOG_DIR</span>, <span class="string">`app-<span class="subst">$&#123;date&#125;</span>.log`</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>存储格式</strong>：JSON Lines（每行一个独立 JSON），便于 <code>grep</code>、<code>jq</code>、流式逐行解析。</li>
+<li><strong>文件切分</strong>：按 <strong>UTC 日期</strong>切分为 <code>app-YYYY-MM-DD.log</code>。</li>
+<li><strong>写入方式</strong>：<code>fs.promises.appendFile</code>，追加写，不覆盖。</li>
+<li><strong>最小校验</strong>：只校验 <code>method</code> 与 <code>url</code> 是否存在，缺失返回 400；非 POST 返回 405。</li>
+<li><strong>目录初始化</strong>：模块加载时创建 <code>logs/</code> 目录（已通过 <code>.gitignore</code> 的 <code>logs/*</code> 排除，不会进仓库）。</li>
+</ul>
+<h3 id="2-5-离线落库：logs-logs-db"><a href="#2-5-离线落库：logs-logs-db" class="headerlink" title="2.5 离线落库：logs/logs.db"></a>2.5 离线落库：<code>logs/logs.db</code></h3><p>日志文件之外，<code>logs/</code> 下还存在一个 SQLite 数据库，用于把 JSON Lines 转成可查询的结构化表。</p>
+<p><strong><code>app_logs</code> 表</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> app_logs (</span><br><span class="line">  id         <span class="type">INTEGER</span> <span class="keyword">PRIMARY KEY</span> AUTOINCREMENT,</span><br><span class="line">  <span class="type">timestamp</span>  TEXT    <span class="keyword">NOT NULL</span>,</span><br><span class="line">  <span class="keyword">method</span>     TEXT    <span class="keyword">NOT NULL</span>,</span><br><span class="line">  url        TEXT    <span class="keyword">NOT NULL</span>,</span><br><span class="line">  form       TEXT,</span><br><span class="line">  action     TEXT,</span><br><span class="line">  status     <span class="type">INTEGER</span>,</span><br><span class="line">  duration   <span class="type">INTEGER</span>,</span><br><span class="line">  username   TEXT,</span><br><span class="line">  error      TEXT,</span><br><span class="line">  raw        TEXT    <span class="keyword">NOT NULL</span>,   <span class="comment">-- 保留原始 JSON 行</span></span><br><span class="line">  created_at TEXT    <span class="keyword">NOT NULL</span> <span class="keyword">DEFAULT</span> (datetime(<span class="string">&#x27;now&#x27;</span>))</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>imported_log_files</code> 表</strong>：记录已导入的文件名、行数与导入时间，实现<strong>幂等导入</strong>（重复执行不会产生重复数据）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> imported_log_files (</span><br><span class="line">  name        TEXT <span class="keyword">PRIMARY KEY</span>,</span><br><span class="line">  lines       <span class="type">INTEGER</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  imported_at TEXT    <span class="keyword">NOT NULL</span> <span class="keyword">DEFAULT</span> (datetime(<span class="string">&#x27;now&#x27;</span>))</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/09/10/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1vibe-coding%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" rel="prev" title="记录一次vibe coding踩坑记录">
+                  <i class="fa fa-angle-left"></i> 记录一次vibe coding踩坑记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Logging</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
