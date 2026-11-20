@@ -47,6 +47,8 @@ highlight:
   auto_detect: false
   tab_replace: ''
   wrap: true
+  exclude_languages:
+    - mermaid
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -86,3 +88,13 @@ deploy:
   repo: git@github.com:Renascence/Renascence.github.io.git
   branch: master
   message: update blog
+
+mermaid:
+  enable: true
+  theme: default
+
+marked:
+  gfm: true # 启用 GitHub 风格 Markdown（代码块语法基础）
+  breaks: true # 支持换行
+  sanitize: false # 禁用 HTML 强制转义，避免复杂 Mermaid 语法异常
+  headerIds: true

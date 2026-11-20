@@ -63,3 +63,13 @@ fancybox: true
 # 页脚
 footer:
   powered: true
+
+# Mermaid 流程图 / 时序图 / 甘特图支持
+# 注意：NexT 8 只识别 {% mermaid %} 标签，```mermaid 围栏由 scripts/mermaid-fence.js 自动转换
+# 版本与 CDN 由主题 _vendors.yml 统一管理，此处无需指定 version / cdn
+mermaid:
+  cdn: https://cdn.bootcdn.net/ajax/libs/mermaid/10.9.1/mermaid.min.js
+  enable: true
+  theme:
+    light: default    # 日间模式主题：default / forest / neutral / dark
+    dark: dark        # 暗黑模式主题
